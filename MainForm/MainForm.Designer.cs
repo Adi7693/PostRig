@@ -28,65 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.MainTab = new System.Windows.Forms.TabControl();
+            this.HomeTab = new System.Windows.Forms.TabPage();
+            this.InputTab = new System.Windows.Forms.TabPage();
+            this.InitTab = new System.Windows.Forms.TabPage();
+            this.OutputTab = new System.Windows.Forms.TabPage();
+            this.HelpTab = new System.Windows.Forms.TabPage();
+            this.MainTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // MainTab
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1055, 735);
-            this.tabControl1.TabIndex = 0;
+            this.MainTab.Controls.Add(this.HomeTab);
+            this.MainTab.Controls.Add(this.InputTab);
+            this.MainTab.Controls.Add(this.InitTab);
+            this.MainTab.Controls.Add(this.OutputTab);
+            this.MainTab.Controls.Add(this.HelpTab);
+            this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTab.Location = new System.Drawing.Point(0, 0);
+            this.MainTab.Name = "MainTab";
+            this.MainTab.SelectedIndex = 0;
+            this.MainTab.Size = new System.Drawing.Size(1055, 735);
+            this.MainTab.TabIndex = 0;
             // 
-            // tabPage1
+            // HomeTab
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1047, 700);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.HomeTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.HomeTab.Location = new System.Drawing.Point(4, 39);
+            this.HomeTab.Name = "HomeTab";
+            this.HomeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.HomeTab.Size = new System.Drawing.Size(1047, 692);
+            this.HomeTab.TabIndex = 0;
+            this.HomeTab.Text = "Home";
             // 
-            // tabPage2
+            // InputTab
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1047, 700);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.InputTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.InputTab.Location = new System.Drawing.Point(4, 39);
+            this.InputTab.Name = "InputTab";
+            this.InputTab.Padding = new System.Windows.Forms.Padding(3);
+            this.InputTab.Size = new System.Drawing.Size(1047, 692);
+            this.InputTab.TabIndex = 1;
+            this.InputTab.Text = "Input";
+            // 
+            // InitTab
+            // 
+            this.InitTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.InitTab.Location = new System.Drawing.Point(4, 39);
+            this.InitTab.Name = "InitTab";
+            this.InitTab.Size = new System.Drawing.Size(1047, 692);
+            this.InitTab.TabIndex = 2;
+            this.InitTab.Text = "Initialization";
+            // 
+            // OutputTab
+            // 
+            this.OutputTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.OutputTab.Location = new System.Drawing.Point(4, 39);
+            this.OutputTab.Name = "OutputTab";
+            this.OutputTab.Size = new System.Drawing.Size(1047, 692);
+            this.OutputTab.TabIndex = 3;
+            this.OutputTab.Text = "Output";
+            // 
+            // HelpTab
+            // 
+            this.HelpTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.HelpTab.Location = new System.Drawing.Point(4, 39);
+            this.HelpTab.Name = "HelpTab";
+            this.HelpTab.Size = new System.Drawing.Size(1047, 692);
+            this.HelpTab.TabIndex = 4;
+            this.HelpTab.Text = "Help";
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1055, 735);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.MainTab);
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.tabControl1.ResumeLayout(false);
+            this.MainTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl MainTab;
+        private System.Windows.Forms.TabPage HomeTab;
+        private System.Windows.Forms.TabPage InputTab;
+        private System.Windows.Forms.TabPage InitTab;
+        private System.Windows.Forms.TabPage OutputTab;
+        private System.Windows.Forms.TabPage HelpTab;
     }
 }
 

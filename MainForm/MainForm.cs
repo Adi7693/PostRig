@@ -15,6 +15,7 @@ namespace New_UI
         public MainForm()
         {
             InitializeComponent();
+           
         }
 
         private delegate void LastActiveTab(object sender, EventArgs e);
@@ -83,20 +84,16 @@ namespace New_UI
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            HomeButton.BackColor = Color.FromArgb(41, 44, 51);
-            InputButton.BackColor = Color.FromArgb(41, 44, 51);
-            InitializationButton.BackColor = Color.FromArgb(41, 44, 51);
-            OutputButton.BackColor = Color.FromArgb(41, 44, 51);
-            HelpButton.BackColor = Color.FromArgb(41, 44, 51);
+            //HomeButton.BackColor = Color.FromArgb(41, 44, 51);
+            //InputButton.BackColor = Color.FromArgb(41, 44, 51);
+            //InitializationButton.BackColor = Color.FromArgb(41, 44, 51);
+            //OutputButton.BackColor = Color.FromArgb(41, 44, 51);
+            //HelpButton.BackColor = Color.FromArgb(41, 44, 51);
 
             DialogResult dialog = MessageBox.Show("Do You Really Want To Close The Program?", "Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 Application.Exit();
-            }
-            else
-            {
-                lastActiveTab.Invoke(sender, e);
             }
         }
 

@@ -21,5 +21,17 @@ namespace New_UI
         private delegate void LastActiveTab(object sender, EventArgs e);
 
         private LastActiveTab lastActiveTab;
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do You Really Want To Close The Program?", "Exit", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+                Application.Exit();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

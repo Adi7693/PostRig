@@ -35,6 +35,10 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caseStudyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.NewRibbon = new System.Windows.Forms.Ribbon();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.DesignRibbonTab = new System.Windows.Forms.RibbonTab();
@@ -43,22 +47,23 @@
             this.NewCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ExisitingCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.SimSetupRibbonTab = new System.Windows.Forms.RibbonTab();
+            this.InitializationRibbonPanel = new System.Windows.Forms.RibbonPanel();
+            this.IPSignalDrpRibbonMenu = new System.Windows.Forms.RibbonButton();
+            this.StepIPRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.HarmonicIPRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.CustomIPRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ResultsRibbonTab = new System.Windows.Forms.RibbonTab();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.caseStudyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.PropertiesPanel = new System.Windows.Forms.Panel();
-            this.VehicleMassLabel = new System.Windows.Forms.Label();
-            this.SpringStiffnessLabel = new System.Windows.Forms.Label();
-            this.DampingCoeffLabel = new System.Windows.Forms.Label();
-            this.VehicleMassTextBox = new System.Windows.Forms.TextBox();
-            this.VehicleMassUnitLabel = new System.Windows.Forms.Label();
-            this.SpringStiffnessTextBox = new System.Windows.Forms.TextBox();
             this.DampingCoeffTextBox = new System.Windows.Forms.TextBox();
-            this.SpringStiffnessUnitLabel = new System.Windows.Forms.Label();
+            this.SpringStiffnessTextBox = new System.Windows.Forms.TextBox();
+            this.VehicleMassTextBox = new System.Windows.Forms.TextBox();
+            this.DampingCoeffLabel = new System.Windows.Forms.Label();
+            this.SpringStiffnessLabel = new System.Windows.Forms.Label();
             this.DampingCoeffUnitLabel = new System.Windows.Forms.Label();
+            this.SpringStiffnessUnitLabel = new System.Windows.Forms.Label();
+            this.VehicleMassUnitLabel = new System.Windows.Forms.Label();
+            this.VehicleMassLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.PropertiesPanel.SuspendLayout();
             this.SuspendLayout();
@@ -89,26 +94,55 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.readMeToolStripMenuItem,
+            this.caseStudyToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // readMeToolStripMenuItem
+            // 
+            this.readMeToolStripMenuItem.Name = "readMeToolStripMenuItem";
+            this.readMeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.readMeToolStripMenuItem.Text = "Tutorial";
+            // 
+            // caseStudyToolStripMenuItem
+            // 
+            this.caseStudyToolStripMenuItem.Name = "caseStudyToolStripMenuItem";
+            this.caseStudyToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.caseStudyToolStripMenuItem.Text = "Case Study";
+            // 
+            // exitToolStripMenu
+            // 
+            this.exitToolStripMenu.Name = "exitToolStripMenu";
+            this.exitToolStripMenu.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenu.Text = "Exit";
+            this.exitToolStripMenu.Click += new System.EventHandler(this.exitToolStripMenu_Click_1);
             // 
             // NewRibbon
             // 
@@ -138,6 +172,7 @@
             this.NewRibbon.Tabs.Add(this.ResultsRibbonTab);
             this.NewRibbon.TabsMargin = new System.Windows.Forms.Padding(5, 26, 20, 0);
             this.NewRibbon.TabSpacing = 4;
+            this.NewRibbon.Visible = false;
             // 
             // ribbonButton1
             // 
@@ -169,6 +204,7 @@
             this.CarDrpRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CarDrpRibbonButton.SmallImage")));
             this.CarDrpRibbonButton.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
             this.CarDrpRibbonButton.Text = "Car";
+            this.CarDrpRibbonButton.Click += new System.EventHandler(this.CarDrpRibbonButton_Click);
             // 
             // NewCarRibbonButton
             // 
@@ -178,6 +214,7 @@
             this.NewCarRibbonButton.Name = "NewCarRibbonButton";
             this.NewCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("NewCarRibbonButton.SmallImage")));
             this.NewCarRibbonButton.Text = "New";
+            this.NewCarRibbonButton.Click += new System.EventHandler(this.NewCarRibbonButton_Click);
             // 
             // ExisitingCarRibbonButton
             // 
@@ -191,7 +228,53 @@
             // SimSetupRibbonTab
             // 
             this.SimSetupRibbonTab.Name = "SimSetupRibbonTab";
+            this.SimSetupRibbonTab.Panels.Add(this.InitializationRibbonPanel);
             this.SimSetupRibbonTab.Text = "Simulation Setup";
+            // 
+            // InitializationRibbonPanel
+            // 
+            this.InitializationRibbonPanel.Items.Add(this.IPSignalDrpRibbonMenu);
+            this.InitializationRibbonPanel.Name = "InitializationRibbonPanel";
+            this.InitializationRibbonPanel.Text = "Initialization";
+            // 
+            // IPSignalDrpRibbonMenu
+            // 
+            this.IPSignalDrpRibbonMenu.DropDownItems.Add(this.StepIPRibbonButton);
+            this.IPSignalDrpRibbonMenu.DropDownItems.Add(this.HarmonicIPRibbonButton);
+            this.IPSignalDrpRibbonMenu.DropDownItems.Add(this.CustomIPRibbonButton);
+            this.IPSignalDrpRibbonMenu.Image = ((System.Drawing.Image)(resources.GetObject("IPSignalDrpRibbonMenu.Image")));
+            this.IPSignalDrpRibbonMenu.LargeImage = ((System.Drawing.Image)(resources.GetObject("IPSignalDrpRibbonMenu.LargeImage")));
+            this.IPSignalDrpRibbonMenu.Name = "IPSignalDrpRibbonMenu";
+            this.IPSignalDrpRibbonMenu.SmallImage = ((System.Drawing.Image)(resources.GetObject("IPSignalDrpRibbonMenu.SmallImage")));
+            this.IPSignalDrpRibbonMenu.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
+            this.IPSignalDrpRibbonMenu.Text = "Input Signal";
+            // 
+            // StepIPRibbonButton
+            // 
+            this.StepIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.Image")));
+            this.StepIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.LargeImage")));
+            this.StepIPRibbonButton.Name = "StepIPRibbonButton";
+            this.StepIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.SmallImage")));
+            this.StepIPRibbonButton.Text = "Step Input";
+            this.StepIPRibbonButton.Click += new System.EventHandler(this.StepIPRibbonButton_Click);
+            // 
+            // HarmonicIPRibbonButton
+            // 
+            this.HarmonicIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.Image")));
+            this.HarmonicIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.LargeImage")));
+            this.HarmonicIPRibbonButton.Name = "HarmonicIPRibbonButton";
+            this.HarmonicIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.SmallImage")));
+            this.HarmonicIPRibbonButton.Text = "Harmonic Input";
+            this.HarmonicIPRibbonButton.Click += new System.EventHandler(this.HarmonicIPRibbonButton_Click);
+            // 
+            // CustomIPRibbonButton
+            // 
+            this.CustomIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.Image")));
+            this.CustomIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.LargeImage")));
+            this.CustomIPRibbonButton.Name = "CustomIPRibbonButton";
+            this.CustomIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.SmallImage")));
+            this.CustomIPRibbonButton.Text = "Custom Input";
+            this.CustomIPRibbonButton.Click += new System.EventHandler(this.CustomIPRibbonButton_Click);
             // 
             // ResultsRibbonTab
             // 
@@ -201,34 +284,6 @@
             // ribbonSeparator1
             // 
             this.ribbonSeparator1.Name = "ribbonSeparator1";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.readMeToolStripMenuItem,
-            this.caseStudyToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // readMeToolStripMenuItem
-            // 
-            this.readMeToolStripMenuItem.Name = "readMeToolStripMenuItem";
-            this.readMeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.readMeToolStripMenuItem.Text = "Tutorial";
-            // 
-            // caseStudyToolStripMenuItem
-            // 
-            this.caseStudyToolStripMenuItem.Name = "caseStudyToolStripMenuItem";
-            this.caseStudyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.caseStudyToolStripMenuItem.Text = "Case Study";
-            // 
-            // exitToolStripMenu
-            // 
-            this.exitToolStripMenu.Name = "exitToolStripMenu";
-            this.exitToolStripMenu.Size = new System.Drawing.Size(37, 20);
-            this.exitToolStripMenu.Text = "Exit";
-            this.exitToolStripMenu.Click += new System.EventHandler(this.exitToolStripMenu_Click_1);
             // 
             // PropertiesPanel
             // 
@@ -250,25 +305,32 @@
             this.PropertiesPanel.TabIndex = 2;
             this.PropertiesPanel.Visible = false;
             // 
-            // VehicleMassLabel
+            // DampingCoeffTextBox
             // 
-            this.VehicleMassLabel.AutoSize = true;
-            this.VehicleMassLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VehicleMassLabel.Location = new System.Drawing.Point(3, 4);
-            this.VehicleMassLabel.Name = "VehicleMassLabel";
-            this.VehicleMassLabel.Size = new System.Drawing.Size(89, 17);
-            this.VehicleMassLabel.TabIndex = 0;
-            this.VehicleMassLabel.Text = "Vehicle Mass";
+            this.DampingCoeffTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DampingCoeffTextBox.Location = new System.Drawing.Point(153, 69);
+            this.DampingCoeffTextBox.Name = "DampingCoeffTextBox";
+            this.DampingCoeffTextBox.Size = new System.Drawing.Size(63, 22);
+            this.DampingCoeffTextBox.TabIndex = 1;
+            this.DampingCoeffTextBox.LostFocus += new System.EventHandler(this.DampingCoeffTextBox_TextChanged);
             // 
-            // SpringStiffnessLabel
+            // SpringStiffnessTextBox
             // 
-            this.SpringStiffnessLabel.AutoSize = true;
-            this.SpringStiffnessLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpringStiffnessLabel.Location = new System.Drawing.Point(3, 38);
-            this.SpringStiffnessLabel.Name = "SpringStiffnessLabel";
-            this.SpringStiffnessLabel.Size = new System.Drawing.Size(99, 17);
-            this.SpringStiffnessLabel.TabIndex = 0;
-            this.SpringStiffnessLabel.Text = "Spring Stiffness";
+            this.SpringStiffnessTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpringStiffnessTextBox.Location = new System.Drawing.Point(153, 35);
+            this.SpringStiffnessTextBox.Name = "SpringStiffnessTextBox";
+            this.SpringStiffnessTextBox.Size = new System.Drawing.Size(63, 22);
+            this.SpringStiffnessTextBox.TabIndex = 1;
+            this.SpringStiffnessTextBox.LostFocus += new System.EventHandler(this.SpringStiffnessTextBox_TextChanged);
+            // 
+            // VehicleMassTextBox
+            // 
+            this.VehicleMassTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehicleMassTextBox.Location = new System.Drawing.Point(153, 1);
+            this.VehicleMassTextBox.Name = "VehicleMassTextBox";
+            this.VehicleMassTextBox.Size = new System.Drawing.Size(63, 22);
+            this.VehicleMassTextBox.TabIndex = 1;
+            this.VehicleMassTextBox.LostFocus += new System.EventHandler(this.VehicleMassTextBox_TextChanged);
             // 
             // DampingCoeffLabel
             // 
@@ -280,39 +342,25 @@
             this.DampingCoeffLabel.TabIndex = 0;
             this.DampingCoeffLabel.Text = "Damping Coefficient";
             // 
-            // VehicleMassTextBox
+            // SpringStiffnessLabel
             // 
-            this.VehicleMassTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VehicleMassTextBox.Location = new System.Drawing.Point(153, 1);
-            this.VehicleMassTextBox.Name = "VehicleMassTextBox";
-            this.VehicleMassTextBox.Size = new System.Drawing.Size(63, 22);
-            this.VehicleMassTextBox.TabIndex = 1;
+            this.SpringStiffnessLabel.AutoSize = true;
+            this.SpringStiffnessLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpringStiffnessLabel.Location = new System.Drawing.Point(3, 38);
+            this.SpringStiffnessLabel.Name = "SpringStiffnessLabel";
+            this.SpringStiffnessLabel.Size = new System.Drawing.Size(99, 17);
+            this.SpringStiffnessLabel.TabIndex = 0;
+            this.SpringStiffnessLabel.Text = "Spring Stiffness";
             // 
-            // VehicleMassUnitLabel
+            // DampingCoeffUnitLabel
             // 
-            this.VehicleMassUnitLabel.AutoSize = true;
-            this.VehicleMassUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VehicleMassUnitLabel.Location = new System.Drawing.Point(222, 4);
-            this.VehicleMassUnitLabel.Name = "VehicleMassUnitLabel";
-            this.VehicleMassUnitLabel.Size = new System.Drawing.Size(25, 17);
-            this.VehicleMassUnitLabel.TabIndex = 0;
-            this.VehicleMassUnitLabel.Text = "Kg";
-            // 
-            // SpringStiffnessTextBox
-            // 
-            this.SpringStiffnessTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpringStiffnessTextBox.Location = new System.Drawing.Point(153, 35);
-            this.SpringStiffnessTextBox.Name = "SpringStiffnessTextBox";
-            this.SpringStiffnessTextBox.Size = new System.Drawing.Size(63, 22);
-            this.SpringStiffnessTextBox.TabIndex = 1;
-            // 
-            // DampingCoeffTextBox
-            // 
-            this.DampingCoeffTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DampingCoeffTextBox.Location = new System.Drawing.Point(153, 69);
-            this.DampingCoeffTextBox.Name = "DampingCoeffTextBox";
-            this.DampingCoeffTextBox.Size = new System.Drawing.Size(63, 22);
-            this.DampingCoeffTextBox.TabIndex = 1;
+            this.DampingCoeffUnitLabel.AutoSize = true;
+            this.DampingCoeffUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DampingCoeffUnitLabel.Location = new System.Drawing.Point(222, 72);
+            this.DampingCoeffUnitLabel.Name = "DampingCoeffUnitLabel";
+            this.DampingCoeffUnitLabel.Size = new System.Drawing.Size(57, 17);
+            this.DampingCoeffUnitLabel.TabIndex = 0;
+            this.DampingCoeffUnitLabel.Text = "N/(m/s)";
             // 
             // SpringStiffnessUnitLabel
             // 
@@ -324,15 +372,25 @@
             this.SpringStiffnessUnitLabel.TabIndex = 0;
             this.SpringStiffnessUnitLabel.Text = "N/m";
             // 
-            // DampingCoeffUnitLabel
+            // VehicleMassUnitLabel
             // 
-            this.DampingCoeffUnitLabel.AutoSize = true;
-            this.DampingCoeffUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DampingCoeffUnitLabel.Location = new System.Drawing.Point(222, 72);
-            this.DampingCoeffUnitLabel.Name = "DampingCoeffUnitLabel";
-            this.DampingCoeffUnitLabel.Size = new System.Drawing.Size(57, 17);
-            this.DampingCoeffUnitLabel.TabIndex = 0;
-            this.DampingCoeffUnitLabel.Text = "N/(m/s)";
+            this.VehicleMassUnitLabel.AutoSize = true;
+            this.VehicleMassUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehicleMassUnitLabel.Location = new System.Drawing.Point(222, 4);
+            this.VehicleMassUnitLabel.Name = "VehicleMassUnitLabel";
+            this.VehicleMassUnitLabel.Size = new System.Drawing.Size(25, 17);
+            this.VehicleMassUnitLabel.TabIndex = 0;
+            this.VehicleMassUnitLabel.Text = "Kg";
+            // 
+            // VehicleMassLabel
+            // 
+            this.VehicleMassLabel.AutoSize = true;
+            this.VehicleMassLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehicleMassLabel.Location = new System.Drawing.Point(3, 4);
+            this.VehicleMassLabel.Name = "VehicleMassLabel";
+            this.VehicleMassLabel.Size = new System.Drawing.Size(89, 17);
+            this.VehicleMassLabel.TabIndex = 0;
+            this.VehicleMassLabel.Text = "Vehicle Mass";
             // 
             // MainForm
             // 
@@ -391,6 +449,11 @@
         private System.Windows.Forms.TextBox SpringStiffnessTextBox;
         private System.Windows.Forms.Label SpringStiffnessUnitLabel;
         private System.Windows.Forms.Label DampingCoeffUnitLabel;
+        private System.Windows.Forms.RibbonPanel InitializationRibbonPanel;
+        private System.Windows.Forms.RibbonButton IPSignalDrpRibbonMenu;
+        private System.Windows.Forms.RibbonButton StepIPRibbonButton;
+        private System.Windows.Forms.RibbonButton HarmonicIPRibbonButton;
+        private System.Windows.Forms.RibbonButton CustomIPRibbonButton;
         //private System.Windows.Forms.RibbonPanel NewCarRibbonPanel;
     }
 }

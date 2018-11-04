@@ -7,20 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Input;
 
 namespace New_UI
 {
     public partial class MainForm : Form
     {
+        InputData Input = new InputData();
+        private bool NeedToCalculate;
+
+
         public MainForm()
         {
             InitializeComponent();
-
         }
 
         private delegate void LastActiveTab(object sender, EventArgs e);
 
         private LastActiveTab lastActiveTab;
+
+        //Display Ribbon on Clicking New
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewRibbon.Visible = true;
+        }
+
 
         private void exitToolStripMenu_Click_1(object sender, EventArgs e)
         {
@@ -29,9 +40,67 @@ namespace New_UI
                 Application.Exit();
         }
 
+
+        //Make Property Panel Visible New Car Button Click
         private void NewCarRibbonButton_Click(object sender, EventArgs e)
         {
             this.PropertiesPanel.Visible = true;
         }
+
+        private void VehicleMassTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newVehicleMass = 0.0;
+
+            if (double.TryParse(VehicleMassTextBox.Text, out newVehicleMass))
+            {
+                Input.VehicleMass = newVehicleMass;
+                NeedToCalculate = true;
+            }
+        }
+
+        private void SpringStiffnessTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newSpringStiffness = 0.0;
+
+            if (double.TryParse(SpringStiffnessTextBox.Text, out newSpringStiffness))
+            {
+                Input.SpringStiffness = newSpringStiffness;
+                NeedToCalculate = true;
+            }
+        }
+
+        private void DampingCoeffTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newDampingCoeff = 0.0;
+
+            if(double.TryParse(DampingCoeffTextBox.Text,out newDampingCoeff))
+            {
+                Input.DampingCoefficient = newDampingCoeff;
+                NeedToCalculate = true;
+            }
+        }
+
+
+        //Hide Property Panel and Open Initialization Panel
+        private void StepIPRibbonButton_Click(object sender,EventArgs e)
+        {
+            this.PropertiesPanel.Visible = false;
+        }
+
+        private void HarmonicIPRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.PropertiesPanel.Visible = false;
+        }
+
+        private void CustomIPRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.PropertiesPanel.Visible = false;
+        }
+
+        private void CarDrpRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.PropertiesPanel.Visible = true;
+        }
+
     }
 }

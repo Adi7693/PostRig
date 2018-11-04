@@ -44,11 +44,11 @@
             this.MainTab.Controls.Add(this.InitTab);
             this.MainTab.Controls.Add(this.OutputTab);
             this.MainTab.Controls.Add(this.HelpTab);
-            this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTab.Dock = System.Windows.Forms.DockStyle.Left;
             this.MainTab.Location = new System.Drawing.Point(0, 0);
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
-            this.MainTab.Size = new System.Drawing.Size(1055, 735);
+            this.MainTab.Size = new System.Drawing.Size(1016, 735);
             this.MainTab.TabIndex = 0;
             // 
             // HomeTab
@@ -57,44 +57,44 @@
             this.HomeTab.Location = new System.Drawing.Point(4, 39);
             this.HomeTab.Name = "HomeTab";
             this.HomeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.HomeTab.Size = new System.Drawing.Size(1047, 692);
+            this.HomeTab.Size = new System.Drawing.Size(1008, 692);
             this.HomeTab.TabIndex = 0;
             this.HomeTab.Text = "Home";
             // 
             // InputTab
             // 
             this.InputTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.InputTab.Location = new System.Drawing.Point(4, 39);
+            this.InputTab.Location = new System.Drawing.Point(4, 25);
             this.InputTab.Name = "InputTab";
             this.InputTab.Padding = new System.Windows.Forms.Padding(3);
-            this.InputTab.Size = new System.Drawing.Size(1047, 692);
+            this.InputTab.Size = new System.Drawing.Size(1047, 706);
             this.InputTab.TabIndex = 1;
             this.InputTab.Text = "Input";
             // 
             // InitTab
             // 
             this.InitTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.InitTab.Location = new System.Drawing.Point(4, 39);
+            this.InitTab.Location = new System.Drawing.Point(4, 25);
             this.InitTab.Name = "InitTab";
-            this.InitTab.Size = new System.Drawing.Size(1047, 692);
+            this.InitTab.Size = new System.Drawing.Size(1047, 706);
             this.InitTab.TabIndex = 2;
             this.InitTab.Text = "Initialization";
             // 
             // OutputTab
             // 
             this.OutputTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.OutputTab.Location = new System.Drawing.Point(4, 39);
+            this.OutputTab.Location = new System.Drawing.Point(4, 25);
             this.OutputTab.Name = "OutputTab";
-            this.OutputTab.Size = new System.Drawing.Size(1047, 692);
+            this.OutputTab.Size = new System.Drawing.Size(1047, 706);
             this.OutputTab.TabIndex = 3;
             this.OutputTab.Text = "Output";
             // 
             // HelpTab
             // 
             this.HelpTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.HelpTab.Location = new System.Drawing.Point(4, 39);
+            this.HelpTab.Location = new System.Drawing.Point(4, 25);
             this.HelpTab.Name = "HelpTab";
-            this.HelpTab.Size = new System.Drawing.Size(1047, 692);
+            this.HelpTab.Size = new System.Drawing.Size(1047, 706);
             this.HelpTab.TabIndex = 4;
             this.HelpTab.Text = "Help";
             // 
@@ -105,12 +105,12 @@
             this.ClientSize = new System.Drawing.Size(1055, 735);
             this.Controls.Add(this.MainTab);
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Post Rig";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MainTab.ResumeLayout(false);
             this.ResumeLayout(false);

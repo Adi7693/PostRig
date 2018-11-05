@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using MathNet.Numerics;
+//using MathNet.Numerics;
 
 namespace Input
 {
@@ -564,6 +560,14 @@ namespace Input
             TotalResponseCalculate();
         }
         #endregion
+
+        public bool NeedsToRecalculate
+        {
+            get
+            {
+                return TimeNeedsToRecalculate || FrequencyNeedsToRecalculate || ForceNeedsToRecalculate || VehicleDataNeedsToRecalculate;
+            }
+        }
 
     }
 }

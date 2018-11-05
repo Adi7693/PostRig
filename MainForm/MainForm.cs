@@ -13,10 +13,8 @@ namespace PostRig
 {
     public partial class MainForm : Form
     {
-        InputData Input = new InputData();
-        private bool NeedToCalculate;
+        public Document Doc { get; set; }
 
-        
         public MainForm()
         {
             InitializeComponent();
@@ -30,6 +28,7 @@ namespace PostRig
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewRibbon.Visible = true;
+            Doc = new Document();
         }
 
 
@@ -37,7 +36,9 @@ namespace PostRig
         {
             DialogResult dialog = MessageBox.Show("Do You Really Want To Close The Program?", "Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
+            {
                 Application.Exit();
+            }
         }
 
 
@@ -45,6 +46,9 @@ namespace PostRig
         private void NewCarRibbonButton_Click(object sender, EventArgs e)
         {
             this.PropertiesPanel.Visible = true;
+            this.PropertiesPanel.BringToFront();
+
+
         }
 
         private void VehicleMassTextBox_TextChanged(object sender, EventArgs e)
@@ -53,8 +57,7 @@ namespace PostRig
 
             if (double.TryParse(VehicleMassTextBox.Text, out newVehicleMass))
             {
-                Input.VehicleMass = newVehicleMass;
-                NeedToCalculate = true;
+                Doc.Input.VehicleMass = newVehicleMass;
             }
         }
 
@@ -64,8 +67,7 @@ namespace PostRig
 
             if (double.TryParse(SpringStiffnessTextBox.Text, out newSpringStiffness))
             {
-                Input.SpringStiffness = newSpringStiffness;
-                NeedToCalculate = true;
+                Doc.Input.SpringStiffness = newSpringStiffness;
             }
         }
 
@@ -75,14 +77,16 @@ namespace PostRig
 
             if(double.TryParse(DampingCoeffTextBox.Text,out newDampingCoeff))
             {
-                Input.DampingCoefficient = newDampingCoeff;
-                NeedToCalculate = true;
+                Doc.Input.DampingCoefficient = newDampingCoeff;
             }
         }
 
 
         //Hide Property Panel and Open Initialization Panel
-       
+       private void test(object sender, MouseEventArgs e)
+        {
+
+        }
 
         private void CarDrpRibbonButton_Click(object sender, EventArgs e)
         {
@@ -96,17 +100,63 @@ namespace PostRig
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.InitialDirectory = "C:\\";
+
+            dlg.Filter = "PostRig Files (*.postrig)|*.postrig";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Doc = new Document(dlg.FileName);
+            }
+
+            if (Doc != null)
+            {
+                UpdateUIFromDocument();
+            }
+        }
+
+
+        public void UpdateUIFromDocument()
+        {
+            if (Doc != null)
+            {
+                VehicleMassTextBox.Text = Doc.Input.VehicleMass.ToString();
+                DampingCoeffTextBox.Text = Doc.Input.DampingCoefficient.ToString();
+                SpringStiffnessTextBox.Text = Doc.Input.SpringStiffness.ToString();
+            }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (Doc != null && !string.IsNullOrWhiteSpace(Doc.FileName))
+            {
+                Doc.Save();
+            }
+            else if (Doc != null)
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Doc != null)
+            {
+                SaveFileDialog dlg = new SaveFileDialog();
 
+                dlg.InitialDirectory = "C:\\";
+
+                dlg.DefaultExt = "*.postrig";
+
+                dlg.AddExtension = true;
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    Doc.SaveAs(dlg.FileName);
+                }
+            }
         }
     }
 }

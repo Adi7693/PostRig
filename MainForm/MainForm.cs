@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Input;
 
-namespace New_UI
+namespace PostRig
 {
     public partial class MainForm : Form
     {
         InputData Input = new InputData();
         private bool NeedToCalculate;
 
-
+        
         public MainForm()
         {
             InitializeComponent();
@@ -82,25 +82,31 @@ namespace New_UI
 
 
         //Hide Property Panel and Open Initialization Panel
-        private void StepIPRibbonButton_Click(object sender,EventArgs e)
-        {
-            this.PropertiesPanel.Visible = false;
-        }
-
-        private void HarmonicIPRibbonButton_Click(object sender, EventArgs e)
-        {
-            this.PropertiesPanel.Visible = false;
-        }
-
-        private void CustomIPRibbonButton_Click(object sender, EventArgs e)
-        {
-            this.PropertiesPanel.Visible = false;
-        }
+       
 
         private void CarDrpRibbonButton_Click(object sender, EventArgs e)
         {
             this.PropertiesPanel.Visible = true;
         }
 
+        private void SimSetupRibbonTab_ActiveChanged(object sender, EventArgs e)
+        {
+            this.PropertiesPanel.Visible = true;
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

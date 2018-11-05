@@ -1,4 +1,4 @@
-﻿namespace New_UI
+﻿namespace PostRig
 {
     partial class MainForm
     {
@@ -47,8 +47,7 @@
             this.NewCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ExisitingCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.SimSetupRibbonTab = new System.Windows.Forms.RibbonTab();
-            this.InitializationRibbonPanel = new System.Windows.Forms.RibbonPanel();
-            this.IPSignalDrpRibbonMenu = new System.Windows.Forms.RibbonButton();
+            this.InputSignalRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.StepIPRibbonButton = new System.Windows.Forms.RibbonButton();
             this.HarmonicIPRibbonButton = new System.Windows.Forms.RibbonButton();
             this.CustomIPRibbonButton = new System.Windows.Forms.RibbonButton();
@@ -94,27 +93,30 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -228,53 +230,47 @@
             // SimSetupRibbonTab
             // 
             this.SimSetupRibbonTab.Name = "SimSetupRibbonTab";
-            this.SimSetupRibbonTab.Panels.Add(this.InitializationRibbonPanel);
+            this.SimSetupRibbonTab.Panels.Add(this.InputSignalRibbonPanel);
             this.SimSetupRibbonTab.Text = "Simulation Setup";
+            this.SimSetupRibbonTab.ActiveChanged += new System.EventHandler(this.SimSetupRibbonTab_ActiveChanged);
             // 
-            // InitializationRibbonPanel
+            // InputSignalRibbonPanel
             // 
-            this.InitializationRibbonPanel.Items.Add(this.IPSignalDrpRibbonMenu);
-            this.InitializationRibbonPanel.Name = "InitializationRibbonPanel";
-            this.InitializationRibbonPanel.Text = "Initialization";
-            // 
-            // IPSignalDrpRibbonMenu
-            // 
-            this.IPSignalDrpRibbonMenu.DropDownItems.Add(this.StepIPRibbonButton);
-            this.IPSignalDrpRibbonMenu.DropDownItems.Add(this.HarmonicIPRibbonButton);
-            this.IPSignalDrpRibbonMenu.DropDownItems.Add(this.CustomIPRibbonButton);
-            this.IPSignalDrpRibbonMenu.Image = ((System.Drawing.Image)(resources.GetObject("IPSignalDrpRibbonMenu.Image")));
-            this.IPSignalDrpRibbonMenu.LargeImage = ((System.Drawing.Image)(resources.GetObject("IPSignalDrpRibbonMenu.LargeImage")));
-            this.IPSignalDrpRibbonMenu.Name = "IPSignalDrpRibbonMenu";
-            this.IPSignalDrpRibbonMenu.SmallImage = ((System.Drawing.Image)(resources.GetObject("IPSignalDrpRibbonMenu.SmallImage")));
-            this.IPSignalDrpRibbonMenu.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
-            this.IPSignalDrpRibbonMenu.Text = "Input Signal";
+            this.InputSignalRibbonPanel.Items.Add(this.StepIPRibbonButton);
+            this.InputSignalRibbonPanel.Items.Add(this.HarmonicIPRibbonButton);
+            this.InputSignalRibbonPanel.Items.Add(this.CustomIPRibbonButton);
+            this.InputSignalRibbonPanel.Name = "InputSignalRibbonPanel";
+            this.InputSignalRibbonPanel.Text = "Input Signal";
             // 
             // StepIPRibbonButton
             // 
             this.StepIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.Image")));
             this.StepIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.LargeImage")));
+            this.StepIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.StepIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
             this.StepIPRibbonButton.Name = "StepIPRibbonButton";
             this.StepIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.SmallImage")));
             this.StepIPRibbonButton.Text = "Step Input";
-            this.StepIPRibbonButton.Click += new System.EventHandler(this.StepIPRibbonButton_Click);
             // 
             // HarmonicIPRibbonButton
             // 
             this.HarmonicIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.Image")));
             this.HarmonicIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.LargeImage")));
+            this.HarmonicIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.HarmonicIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
             this.HarmonicIPRibbonButton.Name = "HarmonicIPRibbonButton";
             this.HarmonicIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.SmallImage")));
             this.HarmonicIPRibbonButton.Text = "Harmonic Input";
-            this.HarmonicIPRibbonButton.Click += new System.EventHandler(this.HarmonicIPRibbonButton_Click);
             // 
             // CustomIPRibbonButton
             // 
             this.CustomIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.Image")));
             this.CustomIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.LargeImage")));
+            this.CustomIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.CustomIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
             this.CustomIPRibbonButton.Name = "CustomIPRibbonButton";
             this.CustomIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.SmallImage")));
             this.CustomIPRibbonButton.Text = "Custom Input";
-            this.CustomIPRibbonButton.Click += new System.EventHandler(this.CustomIPRibbonButton_Click);
             // 
             // ResultsRibbonTab
             // 
@@ -449,8 +445,7 @@
         private System.Windows.Forms.TextBox SpringStiffnessTextBox;
         private System.Windows.Forms.Label SpringStiffnessUnitLabel;
         private System.Windows.Forms.Label DampingCoeffUnitLabel;
-        private System.Windows.Forms.RibbonPanel InitializationRibbonPanel;
-        private System.Windows.Forms.RibbonButton IPSignalDrpRibbonMenu;
+        private System.Windows.Forms.RibbonPanel InputSignalRibbonPanel;
         private System.Windows.Forms.RibbonButton StepIPRibbonButton;
         private System.Windows.Forms.RibbonButton HarmonicIPRibbonButton;
         private System.Windows.Forms.RibbonButton CustomIPRibbonButton;

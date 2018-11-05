@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace New_UI
+namespace PostRig
 {
     static class Program
     {

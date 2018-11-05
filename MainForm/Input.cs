@@ -7,6 +7,7 @@ namespace Input
     public class InputData
     {
         private bool TimeNeedsToRecalculate;
+        private bool StepInputNeedsToRecalculate;
         private bool FrequencyNeedsToRecalculate;
         private bool ForceNeedsToRecalculate;
         private bool VehicleDataNeedsToRecalculate;
@@ -15,8 +16,10 @@ namespace Input
         public InputData()
         {
             StartTime = 0.0;
-            EndTime = 0.0;
-            TimeStep = 0.0;
+            EndTime = 5.0;
+            TimeStep = 0.01;
+            StepTime = 0.5;
+            StepAmplitude = 1.0;
             ExcitationFrequencyHz = 0.0;
             Force = 0.0;
             VehicleMass = 0.0;
@@ -26,6 +29,7 @@ namespace Input
             InitialVelocity = 0.0;
 
             TimeNeedsToRecalculate = false;
+            StepInputNeedsToRecalculate = false;
             FrequencyNeedsToRecalculate = false;
             ForceNeedsToRecalculate = false;
             VehicleDataNeedsToRecalculate = false;
@@ -46,6 +50,7 @@ namespace Input
                 {
                     _startTime = value;
                     TimeNeedsToRecalculate = true;
+                    //StepInputNeedsToRecalculate = true;
                 }
             }
         }
@@ -63,6 +68,7 @@ namespace Input
                 {
                     _timeStep = value;
                     TimeNeedsToRecalculate = true;
+                    //StepInputNeedsToRecalculate = true;
                 }
             }
         }
@@ -84,12 +90,55 @@ namespace Input
                     {
                         _endTime = value;
                         TimeNeedsToRecalculate = true;
+                        //StepInputNeedsToRecalculate = true;
                     }
                 }
 
-                else
+                //else
+                //{
+                //    TimeNeedsToRecalculate = false;
+                //    StepInputNeedsToRecalculate = false;
+                //}
+            }
+        }
+
+        private double stepTime;
+
+        public double StepTime
+        {
+            get
+            {
+                return stepTime;
+            }
+
+            set
+            {
+                if(!value.Equals(stepTime))
                 {
-                    TimeNeedsToRecalculate = false;
+                    if (value > StartTime && value < EndTime)
+                    {
+                        stepTime = value;
+                        StepInputNeedsToRecalculate = true;
+                    }
+                }
+            }
+        }
+
+        private double stepAmplitude;
+
+        public double StepAmplitude
+        {
+            get
+            {
+                return stepAmplitude;
+            }
+
+            set
+            {
+                if(!value.Equals(stepAmplitude))
+                {
+                    stepAmplitude = value;
+                    StepInputNeedsToRecalculate = true;
                 }
             }
         }
@@ -348,6 +397,8 @@ namespace Input
         #region Calculation Methods
         public List<double> TimeIntervals { get; private set; }
 
+        public List<double> StepInput { get; private set; }
+
         public List<double> CosineOscillation { get; private set; }
 
         public List<double> ForceOscillations { get; private set; }
@@ -380,6 +431,35 @@ namespace Input
                 TimeNeedsToRecalculate = false;
 
                 FrequencyNeedsToRecalculate = true;
+            }
+        }
+
+        private void StepInputCalculate()
+        {
+            if (StepInputNeedsToRecalculate)
+            {
+                if (StepInput == null)
+                {
+                    StepInput = new List<double>();
+                }
+            }
+
+            StepInput.Clear();
+
+            foreach(double item in TimeIntervals)
+            {
+                for(double i = StartTime; i < EndTime; i += TimeStep)
+                {
+                    if(item<StepTime)
+                    {
+                        StepInput.Add(0.0 * StepAmplitude);
+                    }
+
+                    else if(item>=StepTime)
+                    {
+                        StepInput.Add(1.0 * StepAmplitude);
+                    }
+                }
             }
         }
 
@@ -568,6 +648,9 @@ namespace Input
                 return TimeNeedsToRecalculate || FrequencyNeedsToRecalculate || ForceNeedsToRecalculate || VehicleDataNeedsToRecalculate;
             }
         }
+
+        
+
 
     }
 }

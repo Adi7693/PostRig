@@ -81,9 +81,71 @@ namespace PostRig
             }
         }
 
+        private void StepIPRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.PropertiesPanel.Visible = false;
+            this.StepInputPanel.Visible = true;
+
+            StartTimeTextBox.Text = Doc.Input.StartTime.ToString();
+            EndTimeTextBox.Text = Doc.Input.EndTime.ToString();
+            TimeStepTextBox.Text = Doc.Input.TimeStep.ToString();
+            StepTimeTextBox.Text = Doc.Input.StepTime.ToString();
+            StepAmplitudeTextBox.Text = Doc.Input.StepAmplitude.ToString();
+        }
+
+        private void StartTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newStartTime = 0.0;
+
+            if(double.TryParse(StartTimeTextBox.Text,out newStartTime))
+            {
+                Doc.Input.StartTime = newStartTime;
+            }
+        }
+
+        private void EndTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newEndTime = 0.0;
+
+            if (double.TryParse(EndTimeTextBox.Text, out newEndTime))
+            {
+                Doc.Input.EndTime = newEndTime;
+            }
+        }
+
+        private void TimeStepTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newTimeStep = 0.0;
+
+            if(double.TryParse(TimeStepTextBox.Text,out newTimeStep))
+            {
+                Doc.Input.TimeStep = newTimeStep;
+            }
+        }
+
+        private void StepTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newStepTime = 0.0;
+
+            if (double.TryParse(StepTimeTextBox.Text, out newStepTime))
+            {
+                Doc.Input.StepTime = newStepTime;
+            }
+        }
+
+        private void StepAmplitudeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            double newStepAmplitude = 0.0;
+
+            if(double.TryParse(StepAmplitudeTextBox.Text,out newStepAmplitude))
+            {
+                Doc.Input.StepAmplitude = newStepAmplitude;
+            }
+        }
+
 
         //Hide Property Panel and Open Initialization Panel
-       private void test(object sender, MouseEventArgs e)
+        private void test(object sender, MouseEventArgs e)
         {
 
         }
@@ -95,7 +157,9 @@ namespace PostRig
 
         private void SimSetupRibbonTab_ActiveChanged(object sender, EventArgs e)
         {
+            this.StepInputPanel.Visible = false;
             this.PropertiesPanel.Visible = true;
+            
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,6 +189,11 @@ namespace PostRig
                 VehicleMassTextBox.Text = Doc.Input.VehicleMass.ToString();
                 DampingCoeffTextBox.Text = Doc.Input.DampingCoefficient.ToString();
                 SpringStiffnessTextBox.Text = Doc.Input.SpringStiffness.ToString();
+                StartTimeTextBox.Text = Doc.Input.StartTime.ToString();
+                EndTimeTextBox.Text = Doc.Input.EndTime.ToString();
+                TimeStepTextBox.Text = Doc.Input.TimeStep.ToString();
+                StepTimeTextBox.Text = Doc.Input.StepTime.ToString();
+                StepAmplitudeTextBox.Text = Doc.Input.StepAmplitude.ToString();
             }
         }
 
@@ -158,5 +227,7 @@ namespace PostRig
                 }
             }
         }
+
+       
     }
 }

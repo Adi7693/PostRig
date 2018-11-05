@@ -54,6 +54,16 @@
             this.ResultsRibbonTab = new System.Windows.Forms.RibbonTab();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
             this.PropertiesPanel = new System.Windows.Forms.Panel();
+            this.VehicleParameterLabel = new System.Windows.Forms.Label();
+            this.VehicleMassLabel = new System.Windows.Forms.Label();
+            this.DampingCoeffTextBox = new System.Windows.Forms.TextBox();
+            this.VehicleMassUnitLabel = new System.Windows.Forms.Label();
+            this.SpringStiffnessLabel = new System.Windows.Forms.Label();
+            this.SpringStiffnessTextBox = new System.Windows.Forms.TextBox();
+            this.DampingCoeffLabel = new System.Windows.Forms.Label();
+            this.SpringStiffnessUnitLabel = new System.Windows.Forms.Label();
+            this.DampingCoeffUnitLabel = new System.Windows.Forms.Label();
+            this.VehicleMassTextBox = new System.Windows.Forms.TextBox();
             this.StepInputPanel = new System.Windows.Forms.Panel();
             this.StepInputHeadingLabel = new System.Windows.Forms.Label();
             this.StartTimeLabel = new System.Windows.Forms.Label();
@@ -71,17 +81,8 @@
             this.TimeStepLabel = new System.Windows.Forms.Label();
             this.EndTimeLabel = new System.Windows.Forms.Label();
             this.EndTimeTextBox = new System.Windows.Forms.TextBox();
-            this.VehicleParameterLabel = new System.Windows.Forms.Label();
-            this.VehicleMassLabel = new System.Windows.Forms.Label();
-            this.DampingCoeffTextBox = new System.Windows.Forms.TextBox();
-            this.VehicleMassUnitLabel = new System.Windows.Forms.Label();
-            this.SpringStiffnessLabel = new System.Windows.Forms.Label();
-            this.SpringStiffnessTextBox = new System.Windows.Forms.TextBox();
-            this.DampingCoeffLabel = new System.Windows.Forms.Label();
-            this.SpringStiffnessUnitLabel = new System.Windows.Forms.Label();
-            this.DampingCoeffUnitLabel = new System.Windows.Forms.Label();
-            this.VehicleMassTextBox = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.StepInputCartesianChart = new LiveCharts.WinForms.CartesianChart();
             this.menuStrip1.SuspendLayout();
             this.PropertiesPanel.SuspendLayout();
             this.StepInputPanel.SuspendLayout();
@@ -210,6 +211,7 @@
             this.DesignRibbonTab.Name = "DesignRibbonTab";
             this.DesignRibbonTab.Panels.Add(this.BuildCarRibbonPanel);
             this.DesignRibbonTab.Text = "Design";
+            this.DesignRibbonTab.ActiveChanged += new System.EventHandler(this.DesignRibbonTab_ActiveChanged);
             // 
             // BuildCarRibbonPanel
             // 
@@ -323,6 +325,102 @@
             this.PropertiesPanel.Size = new System.Drawing.Size(295, 559);
             this.PropertiesPanel.TabIndex = 2;
             this.PropertiesPanel.Visible = false;
+            // 
+            // VehicleParameterLabel
+            // 
+            this.VehicleParameterLabel.AutoSize = true;
+            this.VehicleParameterLabel.Location = new System.Drawing.Point(0, 0);
+            this.VehicleParameterLabel.Name = "VehicleParameterLabel";
+            this.VehicleParameterLabel.Size = new System.Drawing.Size(188, 22);
+            this.VehicleParameterLabel.TabIndex = 4;
+            this.VehicleParameterLabel.Text = "Vehicle Parameters";
+            // 
+            // VehicleMassLabel
+            // 
+            this.VehicleMassLabel.AutoSize = true;
+            this.VehicleMassLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehicleMassLabel.Location = new System.Drawing.Point(3, 39);
+            this.VehicleMassLabel.Name = "VehicleMassLabel";
+            this.VehicleMassLabel.Size = new System.Drawing.Size(89, 17);
+            this.VehicleMassLabel.TabIndex = 0;
+            this.VehicleMassLabel.Text = "Vehicle Mass";
+            // 
+            // DampingCoeffTextBox
+            // 
+            this.DampingCoeffTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DampingCoeffTextBox.Location = new System.Drawing.Point(153, 104);
+            this.DampingCoeffTextBox.Name = "DampingCoeffTextBox";
+            this.DampingCoeffTextBox.Size = new System.Drawing.Size(63, 22);
+            this.DampingCoeffTextBox.TabIndex = 1;
+            this.DampingCoeffTextBox.LostFocus += new System.EventHandler(this.DampingCoeffTextBox_TextChanged);
+            // 
+            // VehicleMassUnitLabel
+            // 
+            this.VehicleMassUnitLabel.AutoSize = true;
+            this.VehicleMassUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehicleMassUnitLabel.Location = new System.Drawing.Point(222, 39);
+            this.VehicleMassUnitLabel.Name = "VehicleMassUnitLabel";
+            this.VehicleMassUnitLabel.Size = new System.Drawing.Size(25, 17);
+            this.VehicleMassUnitLabel.TabIndex = 0;
+            this.VehicleMassUnitLabel.Text = "Kg";
+            // 
+            // SpringStiffnessLabel
+            // 
+            this.SpringStiffnessLabel.AutoSize = true;
+            this.SpringStiffnessLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpringStiffnessLabel.Location = new System.Drawing.Point(3, 73);
+            this.SpringStiffnessLabel.Name = "SpringStiffnessLabel";
+            this.SpringStiffnessLabel.Size = new System.Drawing.Size(99, 17);
+            this.SpringStiffnessLabel.TabIndex = 0;
+            this.SpringStiffnessLabel.Text = "Spring Stiffness";
+            // 
+            // SpringStiffnessTextBox
+            // 
+            this.SpringStiffnessTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpringStiffnessTextBox.Location = new System.Drawing.Point(153, 70);
+            this.SpringStiffnessTextBox.Name = "SpringStiffnessTextBox";
+            this.SpringStiffnessTextBox.Size = new System.Drawing.Size(63, 22);
+            this.SpringStiffnessTextBox.TabIndex = 1;
+            this.SpringStiffnessTextBox.LostFocus += new System.EventHandler(this.SpringStiffnessTextBox_TextChanged);
+            // 
+            // DampingCoeffLabel
+            // 
+            this.DampingCoeffLabel.AutoSize = true;
+            this.DampingCoeffLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DampingCoeffLabel.Location = new System.Drawing.Point(3, 107);
+            this.DampingCoeffLabel.Name = "DampingCoeffLabel";
+            this.DampingCoeffLabel.Size = new System.Drawing.Size(144, 17);
+            this.DampingCoeffLabel.TabIndex = 0;
+            this.DampingCoeffLabel.Text = "Damping Coefficient";
+            // 
+            // SpringStiffnessUnitLabel
+            // 
+            this.SpringStiffnessUnitLabel.AutoSize = true;
+            this.SpringStiffnessUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpringStiffnessUnitLabel.Location = new System.Drawing.Point(222, 73);
+            this.SpringStiffnessUnitLabel.Name = "SpringStiffnessUnitLabel";
+            this.SpringStiffnessUnitLabel.Size = new System.Drawing.Size(37, 17);
+            this.SpringStiffnessUnitLabel.TabIndex = 0;
+            this.SpringStiffnessUnitLabel.Text = "N/m";
+            // 
+            // DampingCoeffUnitLabel
+            // 
+            this.DampingCoeffUnitLabel.AutoSize = true;
+            this.DampingCoeffUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DampingCoeffUnitLabel.Location = new System.Drawing.Point(222, 107);
+            this.DampingCoeffUnitLabel.Name = "DampingCoeffUnitLabel";
+            this.DampingCoeffUnitLabel.Size = new System.Drawing.Size(57, 17);
+            this.DampingCoeffUnitLabel.TabIndex = 0;
+            this.DampingCoeffUnitLabel.Text = "N/(m/s)";
+            // 
+            // VehicleMassTextBox
+            // 
+            this.VehicleMassTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehicleMassTextBox.Location = new System.Drawing.Point(153, 36);
+            this.VehicleMassTextBox.Name = "VehicleMassTextBox";
+            this.VehicleMassTextBox.Size = new System.Drawing.Size(63, 22);
+            this.VehicleMassTextBox.TabIndex = 1;
+            this.VehicleMassTextBox.LostFocus += new System.EventHandler(this.VehicleMassTextBox_TextChanged);
             // 
             // StepInputPanel
             // 
@@ -506,104 +604,9 @@
             this.EndTimeTextBox.TabIndex = 1;
             this.EndTimeTextBox.LostFocus += new System.EventHandler(this.EndTimeTextBox_TextChanged);
             // 
-            // VehicleParameterLabel
-            // 
-            this.VehicleParameterLabel.AutoSize = true;
-            this.VehicleParameterLabel.Location = new System.Drawing.Point(0, 0);
-            this.VehicleParameterLabel.Name = "VehicleParameterLabel";
-            this.VehicleParameterLabel.Size = new System.Drawing.Size(188, 22);
-            this.VehicleParameterLabel.TabIndex = 4;
-            this.VehicleParameterLabel.Text = "Vehicle Parameters";
-            // 
-            // VehicleMassLabel
-            // 
-            this.VehicleMassLabel.AutoSize = true;
-            this.VehicleMassLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VehicleMassLabel.Location = new System.Drawing.Point(3, 39);
-            this.VehicleMassLabel.Name = "VehicleMassLabel";
-            this.VehicleMassLabel.Size = new System.Drawing.Size(89, 17);
-            this.VehicleMassLabel.TabIndex = 0;
-            this.VehicleMassLabel.Text = "Vehicle Mass";
-            // 
-            // DampingCoeffTextBox
-            // 
-            this.DampingCoeffTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DampingCoeffTextBox.Location = new System.Drawing.Point(153, 104);
-            this.DampingCoeffTextBox.Name = "DampingCoeffTextBox";
-            this.DampingCoeffTextBox.Size = new System.Drawing.Size(63, 22);
-            this.DampingCoeffTextBox.TabIndex = 1;
-            this.DampingCoeffTextBox.LostFocus += new System.EventHandler(this.DampingCoeffTextBox_TextChanged);
-            // 
-            // VehicleMassUnitLabel
-            // 
-            this.VehicleMassUnitLabel.AutoSize = true;
-            this.VehicleMassUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VehicleMassUnitLabel.Location = new System.Drawing.Point(222, 39);
-            this.VehicleMassUnitLabel.Name = "VehicleMassUnitLabel";
-            this.VehicleMassUnitLabel.Size = new System.Drawing.Size(25, 17);
-            this.VehicleMassUnitLabel.TabIndex = 0;
-            this.VehicleMassUnitLabel.Text = "Kg";
-            // 
-            // SpringStiffnessLabel
-            // 
-            this.SpringStiffnessLabel.AutoSize = true;
-            this.SpringStiffnessLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpringStiffnessLabel.Location = new System.Drawing.Point(3, 73);
-            this.SpringStiffnessLabel.Name = "SpringStiffnessLabel";
-            this.SpringStiffnessLabel.Size = new System.Drawing.Size(99, 17);
-            this.SpringStiffnessLabel.TabIndex = 0;
-            this.SpringStiffnessLabel.Text = "Spring Stiffness";
-            // 
-            // SpringStiffnessTextBox
-            // 
-            this.SpringStiffnessTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpringStiffnessTextBox.Location = new System.Drawing.Point(153, 70);
-            this.SpringStiffnessTextBox.Name = "SpringStiffnessTextBox";
-            this.SpringStiffnessTextBox.Size = new System.Drawing.Size(63, 22);
-            this.SpringStiffnessTextBox.TabIndex = 1;
-            this.SpringStiffnessTextBox.LostFocus += new System.EventHandler(this.SpringStiffnessTextBox_TextChanged);
-            // 
-            // DampingCoeffLabel
-            // 
-            this.DampingCoeffLabel.AutoSize = true;
-            this.DampingCoeffLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DampingCoeffLabel.Location = new System.Drawing.Point(3, 107);
-            this.DampingCoeffLabel.Name = "DampingCoeffLabel";
-            this.DampingCoeffLabel.Size = new System.Drawing.Size(144, 17);
-            this.DampingCoeffLabel.TabIndex = 0;
-            this.DampingCoeffLabel.Text = "Damping Coefficient";
-            // 
-            // SpringStiffnessUnitLabel
-            // 
-            this.SpringStiffnessUnitLabel.AutoSize = true;
-            this.SpringStiffnessUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpringStiffnessUnitLabel.Location = new System.Drawing.Point(222, 73);
-            this.SpringStiffnessUnitLabel.Name = "SpringStiffnessUnitLabel";
-            this.SpringStiffnessUnitLabel.Size = new System.Drawing.Size(37, 17);
-            this.SpringStiffnessUnitLabel.TabIndex = 0;
-            this.SpringStiffnessUnitLabel.Text = "N/m";
-            // 
-            // DampingCoeffUnitLabel
-            // 
-            this.DampingCoeffUnitLabel.AutoSize = true;
-            this.DampingCoeffUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DampingCoeffUnitLabel.Location = new System.Drawing.Point(222, 107);
-            this.DampingCoeffUnitLabel.Name = "DampingCoeffUnitLabel";
-            this.DampingCoeffUnitLabel.Size = new System.Drawing.Size(57, 17);
-            this.DampingCoeffUnitLabel.TabIndex = 0;
-            this.DampingCoeffUnitLabel.Text = "N/(m/s)";
-            // 
-            // VehicleMassTextBox
-            // 
-            this.VehicleMassTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VehicleMassTextBox.Location = new System.Drawing.Point(153, 36);
-            this.VehicleMassTextBox.Name = "VehicleMassTextBox";
-            this.VehicleMassTextBox.Size = new System.Drawing.Size(63, 22);
-            this.VehicleMassTextBox.TabIndex = 1;
-            this.VehicleMassTextBox.LostFocus += new System.EventHandler(this.VehicleMassTextBox_TextChanged);
-            // 
             // MainPanel
             // 
+            this.MainPanel.Controls.Add(this.StepInputCartesianChart);
             this.MainPanel.Controls.Add(this.StepInputPanel);
             this.MainPanel.Controls.Add(this.PropertiesPanel);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -611,6 +614,16 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1055, 559);
             this.MainPanel.TabIndex = 4;
+            // 
+            // StepInputCartesianChart
+            // 
+            this.StepInputCartesianChart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.StepInputCartesianChart.Location = new System.Drawing.Point(295, 0);
+            this.StepInputCartesianChart.Name = "StepInputCartesianChart";
+            this.StepInputCartesianChart.Size = new System.Drawing.Size(760, 559);
+            this.StepInputCartesianChart.TabIndex = 4;
+            this.StepInputCartesianChart.Text = "cartesianChart1";
+            this.StepInputCartesianChart.Visible = false;
             // 
             // MainForm
             // 
@@ -642,6 +655,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -695,6 +709,7 @@
         private System.Windows.Forms.Label EndTimeLabel;
         private System.Windows.Forms.TextBox EndTimeTextBox;
         private System.Windows.Forms.Panel MainPanel;
+        private LiveCharts.WinForms.CartesianChart StepInputCartesianChart;
         //private System.Windows.Forms.RibbonPanel NewCarRibbonPanel;
     }
 }

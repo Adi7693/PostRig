@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Input;
+using LiveCharts;
+using LiveCharts.WinForms;
 
 namespace PostRig
 {
@@ -19,6 +21,7 @@ namespace PostRig
         {
             InitializeComponent();
         }
+
 
         private delegate void LastActiveTab(object sender, EventArgs e);
 
@@ -75,7 +78,7 @@ namespace PostRig
         {
             double newDampingCoeff = 0.0;
 
-            if(double.TryParse(DampingCoeffTextBox.Text,out newDampingCoeff))
+            if (double.TryParse(DampingCoeffTextBox.Text, out newDampingCoeff))
             {
                 Doc.Input.DampingCoefficient = newDampingCoeff;
             }
@@ -91,13 +94,16 @@ namespace PostRig
             TimeStepTextBox.Text = Doc.Input.TimeStep.ToString();
             StepTimeTextBox.Text = Doc.Input.StepTime.ToString();
             StepAmplitudeTextBox.Text = Doc.Input.StepAmplitude.ToString();
+
+           
+
         }
 
         private void StartTimeTextBox_TextChanged(object sender, EventArgs e)
         {
             double newStartTime = 0.0;
 
-            if(double.TryParse(StartTimeTextBox.Text,out newStartTime))
+            if (double.TryParse(StartTimeTextBox.Text, out newStartTime))
             {
                 Doc.Input.StartTime = newStartTime;
             }
@@ -117,7 +123,7 @@ namespace PostRig
         {
             double newTimeStep = 0.0;
 
-            if(double.TryParse(TimeStepTextBox.Text,out newTimeStep))
+            if (double.TryParse(TimeStepTextBox.Text, out newTimeStep))
             {
                 Doc.Input.TimeStep = newTimeStep;
             }
@@ -137,7 +143,7 @@ namespace PostRig
         {
             double newStepAmplitude = 0.0;
 
-            if(double.TryParse(StepAmplitudeTextBox.Text,out newStepAmplitude))
+            if (double.TryParse(StepAmplitudeTextBox.Text, out newStepAmplitude))
             {
                 Doc.Input.StepAmplitude = newStepAmplitude;
             }
@@ -157,9 +163,15 @@ namespace PostRig
 
         private void SimSetupRibbonTab_ActiveChanged(object sender, EventArgs e)
         {
-            this.StepInputPanel.Visible = false;
+            this.StepInputPanel.Visible = true;
+            this.PropertiesPanel.Visible = false;
+
+        }
+
+        private void DesignRibbonTab_ActiveChanged(object sender, EventArgs e)
+        {
             this.PropertiesPanel.Visible = true;
-            
+            this.StepInputPanel.Visible = false;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -228,6 +240,9 @@ namespace PostRig
             }
         }
 
-       
+
+
+
+
     }
 }

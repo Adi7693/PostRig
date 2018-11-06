@@ -4,6 +4,8 @@ using LiveCharts;
 using LiveCharts.WinForms;
 using LiveCharts.Wpf;
 using LiveCharts.Defaults;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PostRig
 {

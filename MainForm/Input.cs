@@ -15,10 +15,16 @@ namespace Input
         #region Constructor
         public InputData()
         {
+            TimeNeedsToRecalculate = false;
+            StepInputNeedsToRecalculate = false;
+            FrequencyNeedsToRecalculate = false;
+            ForceNeedsToRecalculate = false;
+            VehicleDataNeedsToRecalculate = false;
+
             StartTime = 0.0;
             EndTime = 5.0;
             TimeStep = 0.01;
-            StepTime = 0.5;
+            StepAmplitudeChangeTime = 0.5;
             StepAmplitude = 1.0;
             ExcitationFrequencyHz = 0.0;
             Force = 0.0;
@@ -27,12 +33,6 @@ namespace Input
             DampingCoefficient = 0.0;
             InitialDisplacement = 0.0;
             InitialVelocity = 0.0;
-
-            TimeNeedsToRecalculate = false;
-            StepInputNeedsToRecalculate = false;
-            FrequencyNeedsToRecalculate = false;
-            ForceNeedsToRecalculate = false;
-            VehicleDataNeedsToRecalculate = false;
         }
         #endregion
 
@@ -102,22 +102,22 @@ namespace Input
             }
         }
 
-        private double stepTime;
+        private double stepAmplitudeChangeTime;
 
-        public double StepTime
+        public double StepAmplitudeChangeTime
         {
             get
             {
-                return stepTime;
+                return stepAmplitudeChangeTime;
             }
 
             set
             {
-                if(!value.Equals(stepTime))
+                if(!value.Equals(stepAmplitudeChangeTime))
                 {
                     if (value > StartTime && value < EndTime)
                     {
-                        stepTime = value;
+                        stepAmplitudeChangeTime = value;
                         StepInputNeedsToRecalculate = true;
                     }
                 }
@@ -442,23 +442,23 @@ namespace Input
                 {
                     StepInput = new List<double>();
                 }
-            }
 
-            StepInput.Clear();
 
-            foreach(double item in TimeIntervals)
-            {
-                for(double i = StartTime; i < EndTime; i += TimeStep)
+                StepInput.Clear();
+
+                foreach (double item in TimeIntervals)
                 {
-                    if(item<StepTime)
+
+                    if (item < StepAmplitudeChangeTime)
                     {
-                        StepInput.Add(0.0 * StepAmplitude);
+                        StepInput.Add(0.0);
                     }
 
-                    else if(item>=StepTime)
+                    else if (item >= StepAmplitudeChangeTime)
                     {
-                        StepInput.Add(1.0 * StepAmplitude);
+                        StepInput.Add(StepAmplitude);
                     }
+
                 }
             }
         }
@@ -633,6 +633,7 @@ namespace Input
         public void Calculate()
         {
             TimeCalculate();
+            StepInputCalculate();
             CosineCalculate();
             ForceCalculate();
             InitialConditionDisplacementCalculate();

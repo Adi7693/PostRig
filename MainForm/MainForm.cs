@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Input;
 using LiveCharts;
 using LiveCharts.WinForms;
+using LiveCharts.Wpf;
+using LiveCharts.Defaults;
 
 namespace PostRig
 {
@@ -88,16 +90,40 @@ namespace PostRig
         {
             this.PropertiesPanel.Visible = false;
             this.StepInputPanel.Visible = true;
+            this.StepInputCartesianChart.Visible = true;
+            UpdateUIFromDocument();
 
-            StartTimeTextBox.Text = Doc.Input.StartTime.ToString();
-            EndTimeTextBox.Text = Doc.Input.EndTime.ToString();
-            TimeStepTextBox.Text = Doc.Input.TimeStep.ToString();
-            StepTimeTextBox.Text = Doc.Input.StepTime.ToString();
-            StepAmplitudeTextBox.Text = Doc.Input.StepAmplitude.ToString();
 
-           
+            Doc.Input.Calculate();
+
+
+            StepInputCartesianChart.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title="Step Input",
+                    Values = new ChartValues<double>(Doc.Input.StepInput),
+                    PointGeometry=null
+                },
+
+            };
+
+
+            StepInputCartesianChart.AxisX.Add(new Axis
+            {
+                Title = "Time",
+                Labels = new List<string>(Doc.Input.TimeIntervals.Select(x => x.ToString()))
+            });
+
+
 
         }
+
+       
+
+
+
+
 
         private void StartTimeTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -135,7 +161,7 @@ namespace PostRig
 
             if (double.TryParse(StepTimeTextBox.Text, out newStepTime))
             {
-                Doc.Input.StepTime = newStepTime;
+                Doc.Input.StepAmplitudeChangeTime = newStepTime;
             }
         }
 
@@ -204,7 +230,7 @@ namespace PostRig
                 StartTimeTextBox.Text = Doc.Input.StartTime.ToString();
                 EndTimeTextBox.Text = Doc.Input.EndTime.ToString();
                 TimeStepTextBox.Text = Doc.Input.TimeStep.ToString();
-                StepTimeTextBox.Text = Doc.Input.StepTime.ToString();
+                StepTimeTextBox.Text = Doc.Input.StepAmplitudeChangeTime.ToString();
                 StepAmplitudeTextBox.Text = Doc.Input.StepAmplitude.ToString();
             }
         }
@@ -239,10 +265,11 @@ namespace PostRig
                 }
             }
         }
-
-
-
-
-
     }
 }
+
+
+
+
+    
+

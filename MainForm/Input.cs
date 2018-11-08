@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 //using MathNet.Numerics;
 
 namespace Input
@@ -651,7 +652,10 @@ namespace Input
         }
 
         
-
+        public void Save(ref BinaryWriter writer)
+        {
+            writer.Write("Version");
+        }
 
     }
 }

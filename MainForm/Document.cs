@@ -44,9 +44,7 @@ namespace PostRig
 
         public Document(string fileName) : this()
         {
-            FileName = fileName;
-
-            Open();
+            Open(fileName);
         }
 
 
@@ -56,25 +54,39 @@ namespace PostRig
         }
 
 
-        public void Open()
+        public void Open(string fileName)
         {
+            FileName = fileName;
+
             BinaryReader reader = new BinaryReader(File.Open(FileName, FileMode.Open));
 
-            string method = reader.ReadString();
+            Version = reader.ReadInt32();
 
-            Type type = Type.GetType("PostRig.Document");
+            if (Input == null)
+            {
+                Input = new InputData();
+            }
 
-            PropertyInfo info = type.GetProperty(method);
+            Input.StartTime = reader.ReadDouble();
+            Input.EndTime = reader.ReadDouble();
+            Input.TimeStep = reader.ReadDouble();
 
-            MethodInfo mi = info.SetMethod;
+            Input.StepAmplitudeChangeTime = reader.ReadDouble();
+            Input.StepAmplitude = reader.ReadDouble();
+            Input.ExcitationFrequencyHz = reader.ReadDouble();
 
-            mi.Invoke(this, new object[] { reader.ReadInt32() });
+            Input.Force = reader.ReadDouble();
 
-            method = reader.ReadString();
-            info = type.GetProperty(method);
+            Input.VehicleMass = reader.ReadDouble();
 
-            mi = info.SetMethod;
-            mi.Invoke(this, new object[] { reader.ReadDouble() });
+            Input.SpringStiffness = reader.ReadDouble();
+
+            Input.DampingCoefficient = reader.ReadDouble();
+
+            Input.InitialDisplacement = reader.ReadDouble();
+
+            Input.InitialVelocity = reader.ReadDouble();
+
             reader.Close();
         }
 
@@ -88,14 +100,36 @@ namespace PostRig
         {
             BinaryWriter writer = new BinaryWriter(File.Open(fileName, FileMode.Create));
 
-            writer.Write("Version");
             if (Version == 0)
             {
                 Version = 1;
             }
             writer.Write(Version);
 
-            Input.SaveAs
+            writer.Write(Input.StartTime);
+
+            writer.Write(Input.EndTime);
+
+            writer.Write(Input.TimeStep);
+
+            writer.Write(Input.StepAmplitudeChangeTime);
+
+            writer.Write(Input.StepAmplitude);
+
+            writer.Write(Input.ExcitationFrequencyHz);
+
+            writer.Write(Input.Force);
+
+            writer.Write(Input.VehicleMass);
+
+            writer.Write(Input.SpringStiffness);
+
+            writer.Write(Input.DampingCoefficient);
+
+            writer.Write(Input.InitialDisplacement);
+
+            writer.Write(Input.InitialVelocity);
+
 
             writer.Close();
         }

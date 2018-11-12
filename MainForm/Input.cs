@@ -651,10 +651,5 @@ namespace Input
             }
         }
 
-        
-        public void Save(ref BinaryWriter writer)
-        {
-            writer.Write("Version");
-        }
     }
 }

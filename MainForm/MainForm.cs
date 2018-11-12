@@ -211,6 +211,7 @@ namespace PostRig
         }
 
         private void ResponseToICRibbonButton_Click(object sender, EventArgs e)
+
         {
             this.PropertiesPanel.Visible = true;
             this.SimulationSetupPanel.Visible = true;

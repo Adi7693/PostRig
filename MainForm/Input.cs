@@ -27,12 +27,12 @@ namespace Input
             TimeStep = 0.01;
             StepAmplitudeChangeTime = 0.5;
             StepAmplitude = 1.0;
-            ExcitationFrequencyHz = 0.0;
-            Force = 0.0;
-            VehicleMass = 0.0;
-            SpringStiffness = 0.0;
-            DampingCoefficient = 0.0;
-            InitialDisplacement = 0.0;
+            ExcitationFrequencyHz = 1.0;
+            Force = 10.0;
+            VehicleMass = 1.0;
+            SpringStiffness = 1.0;
+            DampingCoefficient = 1.0;
+            InitialDisplacement = 1.0;
             InitialVelocity = 0.0;
         }
         #endregion
@@ -402,7 +402,7 @@ namespace Input
 
         public List<double> CosineOscillation { get; private set; }
 
-        public List<double> ForceOscillations { get; private set; }
+        public List<double> InputForceOscillations { get; private set; }
 
         public List<double> ResponseToHarmonicInput { get; private set; }
 
@@ -496,13 +496,13 @@ namespace Input
         {
             if (ForceNeedsToRecalculate)
             {
-                if (ForceOscillations == null)
+                if (InputForceOscillations == null)
                 {
-                    ForceOscillations = new List<double>();
+                    InputForceOscillations = new List<double>();
                 }
 
 
-                ForceOscillations.Clear();
+                InputForceOscillations.Clear();
 
                 foreach (double item in CosineOscillation)
 
@@ -511,7 +511,7 @@ namespace Input
                     double force = Force * item;
                     double F = Math.Round(force, 6);
 
-                    ForceOscillations.Add(F);
+                    InputForceOscillations.Add(F);
                 }
                 ForceNeedsToRecalculate = false;
 
@@ -656,6 +656,5 @@ namespace Input
         {
             writer.Write("Version");
         }
-
     }
 }

@@ -43,15 +43,17 @@
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.DesignRibbonTab = new System.Windows.Forms.RibbonTab();
             this.BuildCarRibbonPanel = new System.Windows.Forms.RibbonPanel();
-            this.CarDrpRibbonButton = new System.Windows.Forms.RibbonButton();
             this.NewCarRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.ExisitingCarRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.ExistingCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.SimSetupRibbonTab = new System.Windows.Forms.RibbonTab();
             this.InputSignalRibbonPanel = new System.Windows.Forms.RibbonPanel();
-            this.StepIPRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.ResponseToICRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.HarmonicIPRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.CustomIPRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.CombinedIPRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ResultsRibbonTab = new System.Windows.Forms.RibbonTab();
+            this.RunRibbonPanel = new System.Windows.Forms.RibbonPanel();
+            this.RunRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
             this.PropertiesPanel = new System.Windows.Forms.Panel();
             this.VehicleParameterLabel = new System.Windows.Forms.Label();
@@ -64,29 +66,53 @@
             this.SpringStiffnessUnitLabel = new System.Windows.Forms.Label();
             this.DampingCoeffUnitLabel = new System.Windows.Forms.Label();
             this.VehicleMassTextBox = new System.Windows.Forms.TextBox();
-            this.StepInputPanel = new System.Windows.Forms.Panel();
-            this.StepInputHeadingLabel = new System.Windows.Forms.Label();
-            this.StartTimeLabel = new System.Windows.Forms.Label();
-            this.StartTimeTextBox = new System.Windows.Forms.TextBox();
-            this.StepAmplitudeUnitLabel = new System.Windows.Forms.Label();
-            this.StepTimeUnitLabel = new System.Windows.Forms.Label();
-            this.TimeStepUnitLabel = new System.Windows.Forms.Label();
-            this.StepAmplitudeTextBox = new System.Windows.Forms.TextBox();
-            this.StepTimeTextBox = new System.Windows.Forms.TextBox();
-            this.TimeStepTextBox = new System.Windows.Forms.TextBox();
-            this.StepAmplitudeLabel = new System.Windows.Forms.Label();
-            this.EndTimeUnitLabel = new System.Windows.Forms.Label();
-            this.StepTimeLabel = new System.Windows.Forms.Label();
-            this.StartTimeUnitLabel = new System.Windows.Forms.Label();
-            this.TimeStepLabel = new System.Windows.Forms.Label();
-            this.EndTimeLabel = new System.Windows.Forms.Label();
+            this.SimulationSetupPanel = new System.Windows.Forms.Panel();
+            this.InitializeButton = new System.Windows.Forms.Button();
+            this.HarmonicInputDataGroupBox = new System.Windows.Forms.GroupBox();
+            this.OscillationFrequencyLabel = new System.Windows.Forms.Label();
+            this.ForceAmplitudeLabel = new System.Windows.Forms.Label();
+            this.ForceAmplitudeTextBox = new System.Windows.Forms.TextBox();
+            this.ForceAmplitudeUnitLabel = new System.Windows.Forms.Label();
+            this.OscillationFrequencyUnitLabel = new System.Windows.Forms.Label();
+            this.OscillationFrequencyTextBox = new System.Windows.Forms.TextBox();
+            this.InitialConditionGroupBox = new System.Windows.Forms.GroupBox();
+            this.InitialDisplacementLabel = new System.Windows.Forms.Label();
+            this.InitialVelcoityLabel = new System.Windows.Forms.Label();
+            this.InitialVelocityUnitLabel = new System.Windows.Forms.Label();
+            this.InitialDisplacementTextBox = new System.Windows.Forms.TextBox();
+            this.InitialDisplacementUnitLabel = new System.Windows.Forms.Label();
+            this.InitialVelocityTextBox = new System.Windows.Forms.TextBox();
+            this.TimeSetupPanel = new System.Windows.Forms.Panel();
+            this.TimeSetupHeadingLabel = new System.Windows.Forms.Label();
             this.EndTimeTextBox = new System.Windows.Forms.TextBox();
+            this.StartTimeLabel = new System.Windows.Forms.Label();
+            this.EndTimeLabel = new System.Windows.Forms.Label();
+            this.StartTimeTextBox = new System.Windows.Forms.TextBox();
+            this.TimeStepLabel = new System.Windows.Forms.Label();
+            this.StartTimeUnitLabel = new System.Windows.Forms.Label();
+            this.EndTimeUnitLabel = new System.Windows.Forms.Label();
+            this.TimeStepUnitLabel = new System.Windows.Forms.Label();
+            this.TimeStepTextBox = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.StepInputCartesianChart = new LiveCharts.WinForms.CartesianChart();
+            this.ResponseToICPanel = new System.Windows.Forms.Panel();
+            this.ResponseToICCartesianChart = new LiveCharts.WinForms.CartesianChart();
+            this.InputSignalPanel = new System.Windows.Forms.Panel();
+            this.HarmonicInputCartesianChart = new LiveCharts.WinForms.CartesianChart();
+            this.CombinedResponsePanel = new System.Windows.Forms.Panel();
+            this.CombinedResponseCartesianChart = new LiveCharts.WinForms.CartesianChart();
+            this.ResponseToHarmonicIPPanel = new System.Windows.Forms.Panel();
+            this.ResponseToHarmonicInputCatrtesianChart = new LiveCharts.WinForms.CartesianChart();
             this.menuStrip1.SuspendLayout();
             this.PropertiesPanel.SuspendLayout();
-            this.StepInputPanel.SuspendLayout();
+            this.SimulationSetupPanel.SuspendLayout();
+            this.HarmonicInputDataGroupBox.SuspendLayout();
+            this.InitialConditionGroupBox.SuspendLayout();
+            this.TimeSetupPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
+            this.ResponseToICPanel.SuspendLayout();
+            this.InputSignalPanel.SuspendLayout();
+            this.CombinedResponsePanel.SuspendLayout();
+            this.ResponseToHarmonicIPPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,7 +123,7 @@
             this.exitToolStripMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1055, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1268, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,7 +215,7 @@
             this.NewRibbon.QuickAccessToolbar.Items.Add(this.ribbonButton1);
             this.NewRibbon.QuickAccessToolbar.Visible = false;
             this.NewRibbon.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.NewRibbon.Size = new System.Drawing.Size(1055, 152);
+            this.NewRibbon.Size = new System.Drawing.Size(1268, 152);
             this.NewRibbon.TabIndex = 0;
             this.NewRibbon.Tabs.Add(this.DesignRibbonTab);
             this.NewRibbon.Tabs.Add(this.SimSetupRibbonTab);
@@ -215,25 +241,13 @@
             // 
             // BuildCarRibbonPanel
             // 
-            this.BuildCarRibbonPanel.Items.Add(this.CarDrpRibbonButton);
+            this.BuildCarRibbonPanel.Items.Add(this.NewCarRibbonButton);
+            this.BuildCarRibbonPanel.Items.Add(this.ExistingCarRibbonButton);
             this.BuildCarRibbonPanel.Name = "BuildCarRibbonPanel";
             this.BuildCarRibbonPanel.Text = "Build Car";
             // 
-            // CarDrpRibbonButton
-            // 
-            this.CarDrpRibbonButton.DropDownItems.Add(this.NewCarRibbonButton);
-            this.CarDrpRibbonButton.DropDownItems.Add(this.ExisitingCarRibbonButton);
-            this.CarDrpRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CarDrpRibbonButton.Image")));
-            this.CarDrpRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CarDrpRibbonButton.LargeImage")));
-            this.CarDrpRibbonButton.Name = "CarDrpRibbonButton";
-            this.CarDrpRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CarDrpRibbonButton.SmallImage")));
-            this.CarDrpRibbonButton.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
-            this.CarDrpRibbonButton.Text = "Car";
-            this.CarDrpRibbonButton.Click += new System.EventHandler(this.CarDrpRibbonButton_Click);
-            // 
             // NewCarRibbonButton
             // 
-            this.NewCarRibbonButton.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
             this.NewCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("NewCarRibbonButton.Image")));
             this.NewCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("NewCarRibbonButton.LargeImage")));
             this.NewCarRibbonButton.Name = "NewCarRibbonButton";
@@ -241,14 +255,13 @@
             this.NewCarRibbonButton.Text = "New";
             this.NewCarRibbonButton.Click += new System.EventHandler(this.NewCarRibbonButton_Click);
             // 
-            // ExisitingCarRibbonButton
+            // ExistingCarRibbonButton
             // 
-            this.ExisitingCarRibbonButton.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.ExisitingCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("ExisitingCarRibbonButton.Image")));
-            this.ExisitingCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("ExisitingCarRibbonButton.LargeImage")));
-            this.ExisitingCarRibbonButton.Name = "ExisitingCarRibbonButton";
-            this.ExisitingCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("ExisitingCarRibbonButton.SmallImage")));
-            this.ExisitingCarRibbonButton.Text = "Existing";
+            this.ExistingCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("ExistingCarRibbonButton.Image")));
+            this.ExistingCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("ExistingCarRibbonButton.LargeImage")));
+            this.ExistingCarRibbonButton.Name = "ExistingCarRibbonButton";
+            this.ExistingCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("ExistingCarRibbonButton.SmallImage")));
+            this.ExistingCarRibbonButton.Text = "Existing";
             // 
             // SimSetupRibbonTab
             // 
@@ -259,22 +272,32 @@
             // 
             // InputSignalRibbonPanel
             // 
-            this.InputSignalRibbonPanel.Items.Add(this.StepIPRibbonButton);
+            this.InputSignalRibbonPanel.Items.Add(this.ResponseToICRibbonButton);
             this.InputSignalRibbonPanel.Items.Add(this.HarmonicIPRibbonButton);
-            this.InputSignalRibbonPanel.Items.Add(this.CustomIPRibbonButton);
+            this.InputSignalRibbonPanel.Items.Add(this.CombinedIPRibbonButton);
             this.InputSignalRibbonPanel.Name = "InputSignalRibbonPanel";
             this.InputSignalRibbonPanel.Text = "Input Signal";
             // 
-            // StepIPRibbonButton
+            // ResponseToICRibbonButton
             // 
-            this.StepIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.Image")));
-            this.StepIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.LargeImage")));
-            this.StepIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.StepIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.StepIPRibbonButton.Name = "StepIPRibbonButton";
-            this.StepIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("StepIPRibbonButton.SmallImage")));
-            this.StepIPRibbonButton.Text = "Step Input";
-            this.StepIPRibbonButton.Click += new System.EventHandler(this.StepIPRibbonButton_Click);
+            this.ResponseToICRibbonButton.DropDownItems.Add(this.ribbonButton2);
+            this.ResponseToICRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("ResponseToICRibbonButton.Image")));
+            this.ResponseToICRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("ResponseToICRibbonButton.LargeImage")));
+            this.ResponseToICRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.ResponseToICRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.ResponseToICRibbonButton.Name = "ResponseToICRibbonButton";
+            this.ResponseToICRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("ResponseToICRibbonButton.SmallImage")));
+            this.ResponseToICRibbonButton.Text = "Initial Condition Response";
+            this.ResponseToICRibbonButton.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Right;
+            this.ResponseToICRibbonButton.Click += new System.EventHandler(this.ResponseToICRibbonButton_Click);
+            // 
+            // ribbonButton2
+            // 
+            this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
+            this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
+            this.ribbonButton2.Name = "ribbonButton2";
+            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
+            this.ribbonButton2.Text = "ribbonButton2";
             // 
             // HarmonicIPRibbonButton
             // 
@@ -285,21 +308,37 @@
             this.HarmonicIPRibbonButton.Name = "HarmonicIPRibbonButton";
             this.HarmonicIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.SmallImage")));
             this.HarmonicIPRibbonButton.Text = "Harmonic Input";
+            this.HarmonicIPRibbonButton.Click += new System.EventHandler(this.HarmonicIPRibbonButton_Click);
             // 
-            // CustomIPRibbonButton
+            // CombinedIPRibbonButton
             // 
-            this.CustomIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.Image")));
-            this.CustomIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.LargeImage")));
-            this.CustomIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.CustomIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.CustomIPRibbonButton.Name = "CustomIPRibbonButton";
-            this.CustomIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CustomIPRibbonButton.SmallImage")));
-            this.CustomIPRibbonButton.Text = "Custom Input";
+            this.CombinedIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CombinedIPRibbonButton.Image")));
+            this.CombinedIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CombinedIPRibbonButton.LargeImage")));
+            this.CombinedIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.CombinedIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.CombinedIPRibbonButton.Name = "CombinedIPRibbonButton";
+            this.CombinedIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CombinedIPRibbonButton.SmallImage")));
+            this.CombinedIPRibbonButton.Text = "Combined Input";
             // 
             // ResultsRibbonTab
             // 
             this.ResultsRibbonTab.Name = "ResultsRibbonTab";
+            this.ResultsRibbonTab.Panels.Add(this.RunRibbonPanel);
             this.ResultsRibbonTab.Text = "Results";
+            // 
+            // RunRibbonPanel
+            // 
+            this.RunRibbonPanel.Items.Add(this.RunRibbonButton);
+            this.RunRibbonPanel.Name = "RunRibbonPanel";
+            this.RunRibbonPanel.Text = "Run";
+            // 
+            // RunRibbonButton
+            // 
+            this.RunRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("RunRibbonButton.Image")));
+            this.RunRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("RunRibbonButton.LargeImage")));
+            this.RunRibbonButton.Name = "RunRibbonButton";
+            this.RunRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("RunRibbonButton.SmallImage")));
+            this.RunRibbonButton.Text = "Run";
             // 
             // ribbonSeparator1
             // 
@@ -322,7 +361,7 @@
             this.PropertiesPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.PropertiesPanel.Location = new System.Drawing.Point(0, 0);
             this.PropertiesPanel.Name = "PropertiesPanel";
-            this.PropertiesPanel.Size = new System.Drawing.Size(295, 559);
+            this.PropertiesPanel.Size = new System.Drawing.Size(295, 612);
             this.PropertiesPanel.TabIndex = 2;
             this.PropertiesPanel.Visible = false;
             // 
@@ -422,214 +461,381 @@
             this.VehicleMassTextBox.TabIndex = 1;
             this.VehicleMassTextBox.LostFocus += new System.EventHandler(this.VehicleMassTextBox_TextChanged);
             // 
-            // StepInputPanel
+            // SimulationSetupPanel
             // 
-            this.StepInputPanel.BackColor = System.Drawing.Color.Silver;
-            this.StepInputPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.StepInputPanel.Controls.Add(this.StepInputHeadingLabel);
-            this.StepInputPanel.Controls.Add(this.StartTimeLabel);
-            this.StepInputPanel.Controls.Add(this.StartTimeTextBox);
-            this.StepInputPanel.Controls.Add(this.StepAmplitudeUnitLabel);
-            this.StepInputPanel.Controls.Add(this.StepTimeUnitLabel);
-            this.StepInputPanel.Controls.Add(this.TimeStepUnitLabel);
-            this.StepInputPanel.Controls.Add(this.StepAmplitudeTextBox);
-            this.StepInputPanel.Controls.Add(this.StepTimeTextBox);
-            this.StepInputPanel.Controls.Add(this.TimeStepTextBox);
-            this.StepInputPanel.Controls.Add(this.StepAmplitudeLabel);
-            this.StepInputPanel.Controls.Add(this.EndTimeUnitLabel);
-            this.StepInputPanel.Controls.Add(this.StepTimeLabel);
-            this.StepInputPanel.Controls.Add(this.StartTimeUnitLabel);
-            this.StepInputPanel.Controls.Add(this.TimeStepLabel);
-            this.StepInputPanel.Controls.Add(this.EndTimeLabel);
-            this.StepInputPanel.Controls.Add(this.EndTimeTextBox);
-            this.StepInputPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.StepInputPanel.Location = new System.Drawing.Point(295, 0);
-            this.StepInputPanel.Name = "StepInputPanel";
-            this.StepInputPanel.Size = new System.Drawing.Size(293, 559);
-            this.StepInputPanel.TabIndex = 3;
-            this.StepInputPanel.Visible = false;
+            this.SimulationSetupPanel.BackColor = System.Drawing.Color.Silver;
+            this.SimulationSetupPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.SimulationSetupPanel.Controls.Add(this.InitializeButton);
+            this.SimulationSetupPanel.Controls.Add(this.HarmonicInputDataGroupBox);
+            this.SimulationSetupPanel.Controls.Add(this.InitialConditionGroupBox);
+            this.SimulationSetupPanel.Controls.Add(this.TimeSetupPanel);
+            this.SimulationSetupPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SimulationSetupPanel.Location = new System.Drawing.Point(295, 0);
+            this.SimulationSetupPanel.Name = "SimulationSetupPanel";
+            this.SimulationSetupPanel.Size = new System.Drawing.Size(295, 612);
+            this.SimulationSetupPanel.TabIndex = 3;
+            this.SimulationSetupPanel.Visible = false;
             // 
-            // StepInputHeadingLabel
+            // InitializeButton
             // 
-            this.StepInputHeadingLabel.AutoSize = true;
-            this.StepInputHeadingLabel.Location = new System.Drawing.Point(0, 0);
-            this.StepInputHeadingLabel.Name = "StepInputHeadingLabel";
-            this.StepInputHeadingLabel.Size = new System.Drawing.Size(105, 22);
-            this.StepInputHeadingLabel.TabIndex = 2;
-            this.StepInputHeadingLabel.Text = "Step Input";
+            this.InitializeButton.Location = new System.Drawing.Point(7, 361);
+            this.InitializeButton.Name = "InitializeButton";
+            this.InitializeButton.Size = new System.Drawing.Size(109, 29);
+            this.InitializeButton.TabIndex = 8;
+            this.InitializeButton.Text = "Initialize";
+            this.InitializeButton.UseVisualStyleBackColor = true;
+            this.InitializeButton.Click += new System.EventHandler(this.InitializeButton_Click);
             // 
-            // StartTimeLabel
+            // HarmonicInputDataGroupBox
             // 
-            this.StartTimeLabel.AutoSize = true;
-            this.StartTimeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartTimeLabel.Location = new System.Drawing.Point(3, 34);
-            this.StartTimeLabel.Name = "StartTimeLabel";
-            this.StartTimeLabel.Size = new System.Drawing.Size(70, 17);
-            this.StartTimeLabel.TabIndex = 0;
-            this.StartTimeLabel.Text = "Start Time";
+            this.HarmonicInputDataGroupBox.Controls.Add(this.OscillationFrequencyLabel);
+            this.HarmonicInputDataGroupBox.Controls.Add(this.ForceAmplitudeLabel);
+            this.HarmonicInputDataGroupBox.Controls.Add(this.ForceAmplitudeTextBox);
+            this.HarmonicInputDataGroupBox.Controls.Add(this.ForceAmplitudeUnitLabel);
+            this.HarmonicInputDataGroupBox.Controls.Add(this.OscillationFrequencyUnitLabel);
+            this.HarmonicInputDataGroupBox.Controls.Add(this.OscillationFrequencyTextBox);
+            this.HarmonicInputDataGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HarmonicInputDataGroupBox.Location = new System.Drawing.Point(0, 239);
+            this.HarmonicInputDataGroupBox.Name = "HarmonicInputDataGroupBox";
+            this.HarmonicInputDataGroupBox.Size = new System.Drawing.Size(291, 100);
+            this.HarmonicInputDataGroupBox.TabIndex = 7;
+            this.HarmonicInputDataGroupBox.TabStop = false;
+            this.HarmonicInputDataGroupBox.Text = "Harmonic Input Data";
+            this.HarmonicInputDataGroupBox.Visible = false;
             // 
-            // StartTimeTextBox
+            // OscillationFrequencyLabel
             // 
-            this.StartTimeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartTimeTextBox.Location = new System.Drawing.Point(153, 31);
-            this.StartTimeTextBox.Name = "StartTimeTextBox";
-            this.StartTimeTextBox.Size = new System.Drawing.Size(63, 22);
-            this.StartTimeTextBox.TabIndex = 1;
-            this.StartTimeTextBox.LostFocus += new System.EventHandler(this.StartTimeTextBox_TextChanged);
+            this.OscillationFrequencyLabel.AutoSize = true;
+            this.OscillationFrequencyLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OscillationFrequencyLabel.Location = new System.Drawing.Point(6, 36);
+            this.OscillationFrequencyLabel.Name = "OscillationFrequencyLabel";
+            this.OscillationFrequencyLabel.Size = new System.Drawing.Size(144, 17);
+            this.OscillationFrequencyLabel.TabIndex = 0;
+            this.OscillationFrequencyLabel.Text = "Oscillation Frequency";
             // 
-            // StepAmplitudeUnitLabel
+            // ForceAmplitudeLabel
             // 
-            this.StepAmplitudeUnitLabel.AutoSize = true;
-            this.StepAmplitudeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StepAmplitudeUnitLabel.Location = new System.Drawing.Point(220, 179);
-            this.StepAmplitudeUnitLabel.Name = "StepAmplitudeUnitLabel";
-            this.StepAmplitudeUnitLabel.Size = new System.Drawing.Size(30, 17);
-            this.StepAmplitudeUnitLabel.TabIndex = 0;
-            this.StepAmplitudeUnitLabel.Text = "Sec";
+            this.ForceAmplitudeLabel.AutoSize = true;
+            this.ForceAmplitudeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForceAmplitudeLabel.Location = new System.Drawing.Point(6, 73);
+            this.ForceAmplitudeLabel.Name = "ForceAmplitudeLabel";
+            this.ForceAmplitudeLabel.Size = new System.Drawing.Size(114, 17);
+            this.ForceAmplitudeLabel.TabIndex = 0;
+            this.ForceAmplitudeLabel.Text = "Force Amplitude";
             // 
-            // StepTimeUnitLabel
+            // ForceAmplitudeTextBox
             // 
-            this.StepTimeUnitLabel.AutoSize = true;
-            this.StepTimeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StepTimeUnitLabel.Location = new System.Drawing.Point(220, 142);
-            this.StepTimeUnitLabel.Name = "StepTimeUnitLabel";
-            this.StepTimeUnitLabel.Size = new System.Drawing.Size(30, 17);
-            this.StepTimeUnitLabel.TabIndex = 0;
-            this.StepTimeUnitLabel.Text = "Sec";
+            this.ForceAmplitudeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForceAmplitudeTextBox.Location = new System.Drawing.Point(156, 70);
+            this.ForceAmplitudeTextBox.Name = "ForceAmplitudeTextBox";
+            this.ForceAmplitudeTextBox.Size = new System.Drawing.Size(63, 22);
+            this.ForceAmplitudeTextBox.TabIndex = 1;
+            this.ForceAmplitudeTextBox.LostFocus += new System.EventHandler(this.ForceAmplitudeTextBox_TextChanged);
             // 
-            // TimeStepUnitLabel
+            // ForceAmplitudeUnitLabel
             // 
-            this.TimeStepUnitLabel.AutoSize = true;
-            this.TimeStepUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeStepUnitLabel.Location = new System.Drawing.Point(220, 105);
-            this.TimeStepUnitLabel.Name = "TimeStepUnitLabel";
-            this.TimeStepUnitLabel.Size = new System.Drawing.Size(30, 17);
-            this.TimeStepUnitLabel.TabIndex = 0;
-            this.TimeStepUnitLabel.Text = "Sec";
+            this.ForceAmplitudeUnitLabel.AutoSize = true;
+            this.ForceAmplitudeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForceAmplitudeUnitLabel.Location = new System.Drawing.Point(225, 73);
+            this.ForceAmplitudeUnitLabel.Name = "ForceAmplitudeUnitLabel";
+            this.ForceAmplitudeUnitLabel.Size = new System.Drawing.Size(18, 17);
+            this.ForceAmplitudeUnitLabel.TabIndex = 0;
+            this.ForceAmplitudeUnitLabel.Text = "N";
             // 
-            // StepAmplitudeTextBox
+            // OscillationFrequencyUnitLabel
             // 
-            this.StepAmplitudeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StepAmplitudeTextBox.Location = new System.Drawing.Point(151, 176);
-            this.StepAmplitudeTextBox.Name = "StepAmplitudeTextBox";
-            this.StepAmplitudeTextBox.Size = new System.Drawing.Size(63, 22);
-            this.StepAmplitudeTextBox.TabIndex = 1;
-            this.StepAmplitudeTextBox.LostFocus += new System.EventHandler(this.StepAmplitudeTextBox_TextChanged);
+            this.OscillationFrequencyUnitLabel.AutoSize = true;
+            this.OscillationFrequencyUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OscillationFrequencyUnitLabel.Location = new System.Drawing.Point(225, 36);
+            this.OscillationFrequencyUnitLabel.Name = "OscillationFrequencyUnitLabel";
+            this.OscillationFrequencyUnitLabel.Size = new System.Drawing.Size(23, 17);
+            this.OscillationFrequencyUnitLabel.TabIndex = 0;
+            this.OscillationFrequencyUnitLabel.Text = "Hz";
             // 
-            // StepTimeTextBox
+            // OscillationFrequencyTextBox
             // 
-            this.StepTimeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StepTimeTextBox.Location = new System.Drawing.Point(151, 139);
-            this.StepTimeTextBox.Name = "StepTimeTextBox";
-            this.StepTimeTextBox.Size = new System.Drawing.Size(63, 22);
-            this.StepTimeTextBox.TabIndex = 1;
-            this.StepTimeTextBox.TextChanged += new System.EventHandler(this.StepTimeTextBox_TextChanged);
-            this.StepTimeTextBox.LostFocus += new System.EventHandler(this.DampingCoeffTextBox_TextChanged);
+            this.OscillationFrequencyTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OscillationFrequencyTextBox.Location = new System.Drawing.Point(156, 33);
+            this.OscillationFrequencyTextBox.Name = "OscillationFrequencyTextBox";
+            this.OscillationFrequencyTextBox.Size = new System.Drawing.Size(63, 22);
+            this.OscillationFrequencyTextBox.TabIndex = 1;
+            this.OscillationFrequencyTextBox.LostFocus += new System.EventHandler(this.OscillationFrequencyTextBox_TextChanged);
             // 
-            // TimeStepTextBox
+            // InitialConditionGroupBox
             // 
-            this.TimeStepTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeStepTextBox.Location = new System.Drawing.Point(151, 102);
-            this.TimeStepTextBox.Name = "TimeStepTextBox";
-            this.TimeStepTextBox.Size = new System.Drawing.Size(63, 22);
-            this.TimeStepTextBox.TabIndex = 1;
-            this.TimeStepTextBox.LostFocus += new System.EventHandler(this.TimeStepTextBox_TextChanged);
+            this.InitialConditionGroupBox.Controls.Add(this.InitialDisplacementLabel);
+            this.InitialConditionGroupBox.Controls.Add(this.InitialVelcoityLabel);
+            this.InitialConditionGroupBox.Controls.Add(this.InitialVelocityUnitLabel);
+            this.InitialConditionGroupBox.Controls.Add(this.InitialDisplacementTextBox);
+            this.InitialConditionGroupBox.Controls.Add(this.InitialDisplacementUnitLabel);
+            this.InitialConditionGroupBox.Controls.Add(this.InitialVelocityTextBox);
+            this.InitialConditionGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InitialConditionGroupBox.Location = new System.Drawing.Point(0, 139);
+            this.InitialConditionGroupBox.Name = "InitialConditionGroupBox";
+            this.InitialConditionGroupBox.Size = new System.Drawing.Size(291, 100);
+            this.InitialConditionGroupBox.TabIndex = 6;
+            this.InitialConditionGroupBox.TabStop = false;
+            this.InitialConditionGroupBox.Text = "Initial Condition";
             // 
-            // StepAmplitudeLabel
+            // InitialDisplacementLabel
             // 
-            this.StepAmplitudeLabel.AutoSize = true;
-            this.StepAmplitudeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StepAmplitudeLabel.Location = new System.Drawing.Point(1, 179);
-            this.StepAmplitudeLabel.Name = "StepAmplitudeLabel";
-            this.StepAmplitudeLabel.Size = new System.Drawing.Size(107, 17);
-            this.StepAmplitudeLabel.TabIndex = 0;
-            this.StepAmplitudeLabel.Text = "Step Amplitude";
+            this.InitialDisplacementLabel.AutoSize = true;
+            this.InitialDisplacementLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitialDisplacementLabel.Location = new System.Drawing.Point(6, 36);
+            this.InitialDisplacementLabel.Name = "InitialDisplacementLabel";
+            this.InitialDisplacementLabel.Size = new System.Drawing.Size(135, 17);
+            this.InitialDisplacementLabel.TabIndex = 0;
+            this.InitialDisplacementLabel.Text = "Initial Displacement";
             // 
-            // EndTimeUnitLabel
+            // InitialVelcoityLabel
             // 
-            this.EndTimeUnitLabel.AutoSize = true;
-            this.EndTimeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndTimeUnitLabel.Location = new System.Drawing.Point(222, 68);
-            this.EndTimeUnitLabel.Name = "EndTimeUnitLabel";
-            this.EndTimeUnitLabel.Size = new System.Drawing.Size(30, 17);
-            this.EndTimeUnitLabel.TabIndex = 0;
-            this.EndTimeUnitLabel.Text = "Sec";
+            this.InitialVelcoityLabel.AutoSize = true;
+            this.InitialVelcoityLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitialVelcoityLabel.Location = new System.Drawing.Point(6, 73);
+            this.InitialVelcoityLabel.Name = "InitialVelcoityLabel";
+            this.InitialVelcoityLabel.Size = new System.Drawing.Size(97, 17);
+            this.InitialVelcoityLabel.TabIndex = 0;
+            this.InitialVelcoityLabel.Text = "Initial Velocity";
             // 
-            // StepTimeLabel
+            // InitialVelocityUnitLabel
             // 
-            this.StepTimeLabel.AutoSize = true;
-            this.StepTimeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StepTimeLabel.Location = new System.Drawing.Point(1, 142);
-            this.StepTimeLabel.Name = "StepTimeLabel";
-            this.StepTimeLabel.Size = new System.Drawing.Size(119, 17);
-            this.StepTimeLabel.TabIndex = 0;
-            this.StepTimeLabel.Text = "Start Time of Step";
+            this.InitialVelocityUnitLabel.AutoSize = true;
+            this.InitialVelocityUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitialVelocityUnitLabel.Location = new System.Drawing.Point(225, 73);
+            this.InitialVelocityUnitLabel.Name = "InitialVelocityUnitLabel";
+            this.InitialVelocityUnitLabel.Size = new System.Drawing.Size(32, 17);
+            this.InitialVelocityUnitLabel.TabIndex = 0;
+            this.InitialVelocityUnitLabel.Text = "m/s";
             // 
-            // StartTimeUnitLabel
+            // InitialDisplacementTextBox
             // 
-            this.StartTimeUnitLabel.AutoSize = true;
-            this.StartTimeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartTimeUnitLabel.Location = new System.Drawing.Point(222, 34);
-            this.StartTimeUnitLabel.Name = "StartTimeUnitLabel";
-            this.StartTimeUnitLabel.Size = new System.Drawing.Size(30, 17);
-            this.StartTimeUnitLabel.TabIndex = 0;
-            this.StartTimeUnitLabel.Text = "Sec";
+            this.InitialDisplacementTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitialDisplacementTextBox.Location = new System.Drawing.Point(156, 33);
+            this.InitialDisplacementTextBox.Name = "InitialDisplacementTextBox";
+            this.InitialDisplacementTextBox.Size = new System.Drawing.Size(63, 22);
+            this.InitialDisplacementTextBox.TabIndex = 1;
+            this.InitialDisplacementTextBox.LostFocus += new System.EventHandler(this.InitialDisplacement_TextChanged);
             // 
-            // TimeStepLabel
+            // InitialDisplacementUnitLabel
             // 
-            this.TimeStepLabel.AutoSize = true;
-            this.TimeStepLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeStepLabel.Location = new System.Drawing.Point(1, 105);
-            this.TimeStepLabel.Name = "TimeStepLabel";
-            this.TimeStepLabel.Size = new System.Drawing.Size(69, 17);
-            this.TimeStepLabel.TabIndex = 0;
-            this.TimeStepLabel.Text = "Time Step";
+            this.InitialDisplacementUnitLabel.AutoSize = true;
+            this.InitialDisplacementUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitialDisplacementUnitLabel.Location = new System.Drawing.Point(225, 36);
+            this.InitialDisplacementUnitLabel.Name = "InitialDisplacementUnitLabel";
+            this.InitialDisplacementUnitLabel.Size = new System.Drawing.Size(21, 17);
+            this.InitialDisplacementUnitLabel.TabIndex = 0;
+            this.InitialDisplacementUnitLabel.Text = "m";
             // 
-            // EndTimeLabel
+            // InitialVelocityTextBox
             // 
-            this.EndTimeLabel.AutoSize = true;
-            this.EndTimeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndTimeLabel.Location = new System.Drawing.Point(3, 68);
-            this.EndTimeLabel.Name = "EndTimeLabel";
-            this.EndTimeLabel.Size = new System.Drawing.Size(65, 17);
-            this.EndTimeLabel.TabIndex = 0;
-            this.EndTimeLabel.Text = "End Time";
+            this.InitialVelocityTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitialVelocityTextBox.Location = new System.Drawing.Point(156, 70);
+            this.InitialVelocityTextBox.Name = "InitialVelocityTextBox";
+            this.InitialVelocityTextBox.Size = new System.Drawing.Size(63, 22);
+            this.InitialVelocityTextBox.TabIndex = 1;
+            this.InitialVelocityTextBox.LostFocus += new System.EventHandler(this.InitialVelocityTextBox_TextChanged);
+            // 
+            // TimeSetupPanel
+            // 
+            this.TimeSetupPanel.Controls.Add(this.TimeSetupHeadingLabel);
+            this.TimeSetupPanel.Controls.Add(this.EndTimeTextBox);
+            this.TimeSetupPanel.Controls.Add(this.StartTimeLabel);
+            this.TimeSetupPanel.Controls.Add(this.EndTimeLabel);
+            this.TimeSetupPanel.Controls.Add(this.StartTimeTextBox);
+            this.TimeSetupPanel.Controls.Add(this.TimeStepLabel);
+            this.TimeSetupPanel.Controls.Add(this.StartTimeUnitLabel);
+            this.TimeSetupPanel.Controls.Add(this.EndTimeUnitLabel);
+            this.TimeSetupPanel.Controls.Add(this.TimeStepUnitLabel);
+            this.TimeSetupPanel.Controls.Add(this.TimeStepTextBox);
+            this.TimeSetupPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TimeSetupPanel.Location = new System.Drawing.Point(0, 0);
+            this.TimeSetupPanel.Name = "TimeSetupPanel";
+            this.TimeSetupPanel.Size = new System.Drawing.Size(291, 139);
+            this.TimeSetupPanel.TabIndex = 5;
+            // 
+            // TimeSetupHeadingLabel
+            // 
+            this.TimeSetupHeadingLabel.AutoSize = true;
+            this.TimeSetupHeadingLabel.Location = new System.Drawing.Point(5, 1);
+            this.TimeSetupHeadingLabel.Name = "TimeSetupHeadingLabel";
+            this.TimeSetupHeadingLabel.Size = new System.Drawing.Size(108, 22);
+            this.TimeSetupHeadingLabel.TabIndex = 2;
+            this.TimeSetupHeadingLabel.Text = "Time Setup";
             // 
             // EndTimeTextBox
             // 
             this.EndTimeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndTimeTextBox.Location = new System.Drawing.Point(153, 65);
+            this.EndTimeTextBox.Location = new System.Drawing.Point(156, 74);
             this.EndTimeTextBox.Name = "EndTimeTextBox";
             this.EndTimeTextBox.Size = new System.Drawing.Size(63, 22);
             this.EndTimeTextBox.TabIndex = 1;
             this.EndTimeTextBox.LostFocus += new System.EventHandler(this.EndTimeTextBox_TextChanged);
             // 
+            // StartTimeLabel
+            // 
+            this.StartTimeLabel.AutoSize = true;
+            this.StartTimeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartTimeLabel.Location = new System.Drawing.Point(6, 43);
+            this.StartTimeLabel.Name = "StartTimeLabel";
+            this.StartTimeLabel.Size = new System.Drawing.Size(70, 17);
+            this.StartTimeLabel.TabIndex = 0;
+            this.StartTimeLabel.Text = "Start Time";
+            // 
+            // EndTimeLabel
+            // 
+            this.EndTimeLabel.AutoSize = true;
+            this.EndTimeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndTimeLabel.Location = new System.Drawing.Point(6, 77);
+            this.EndTimeLabel.Name = "EndTimeLabel";
+            this.EndTimeLabel.Size = new System.Drawing.Size(65, 17);
+            this.EndTimeLabel.TabIndex = 0;
+            this.EndTimeLabel.Text = "End Time";
+            // 
+            // StartTimeTextBox
+            // 
+            this.StartTimeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartTimeTextBox.Location = new System.Drawing.Point(156, 40);
+            this.StartTimeTextBox.Name = "StartTimeTextBox";
+            this.StartTimeTextBox.Size = new System.Drawing.Size(63, 22);
+            this.StartTimeTextBox.TabIndex = 1;
+            this.StartTimeTextBox.LostFocus += new System.EventHandler(this.StartTimeTextBox_TextChanged);
+            // 
+            // TimeStepLabel
+            // 
+            this.TimeStepLabel.AutoSize = true;
+            this.TimeStepLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeStepLabel.Location = new System.Drawing.Point(4, 114);
+            this.TimeStepLabel.Name = "TimeStepLabel";
+            this.TimeStepLabel.Size = new System.Drawing.Size(69, 17);
+            this.TimeStepLabel.TabIndex = 0;
+            this.TimeStepLabel.Text = "Time Step";
+            // 
+            // StartTimeUnitLabel
+            // 
+            this.StartTimeUnitLabel.AutoSize = true;
+            this.StartTimeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartTimeUnitLabel.Location = new System.Drawing.Point(225, 43);
+            this.StartTimeUnitLabel.Name = "StartTimeUnitLabel";
+            this.StartTimeUnitLabel.Size = new System.Drawing.Size(30, 17);
+            this.StartTimeUnitLabel.TabIndex = 0;
+            this.StartTimeUnitLabel.Text = "Sec";
+            // 
+            // EndTimeUnitLabel
+            // 
+            this.EndTimeUnitLabel.AutoSize = true;
+            this.EndTimeUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndTimeUnitLabel.Location = new System.Drawing.Point(225, 77);
+            this.EndTimeUnitLabel.Name = "EndTimeUnitLabel";
+            this.EndTimeUnitLabel.Size = new System.Drawing.Size(30, 17);
+            this.EndTimeUnitLabel.TabIndex = 0;
+            this.EndTimeUnitLabel.Text = "Sec";
+            // 
+            // TimeStepUnitLabel
+            // 
+            this.TimeStepUnitLabel.AutoSize = true;
+            this.TimeStepUnitLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeStepUnitLabel.Location = new System.Drawing.Point(223, 114);
+            this.TimeStepUnitLabel.Name = "TimeStepUnitLabel";
+            this.TimeStepUnitLabel.Size = new System.Drawing.Size(30, 17);
+            this.TimeStepUnitLabel.TabIndex = 0;
+            this.TimeStepUnitLabel.Text = "Sec";
+            // 
+            // TimeStepTextBox
+            // 
+            this.TimeStepTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeStepTextBox.Location = new System.Drawing.Point(154, 111);
+            this.TimeStepTextBox.Name = "TimeStepTextBox";
+            this.TimeStepTextBox.Size = new System.Drawing.Size(63, 22);
+            this.TimeStepTextBox.TabIndex = 1;
+            this.TimeStepTextBox.LostFocus += new System.EventHandler(this.TimeStepTextBox_TextChanged);
+            // 
             // MainPanel
             // 
-            this.MainPanel.Controls.Add(this.StepInputCartesianChart);
-            this.MainPanel.Controls.Add(this.StepInputPanel);
+            this.MainPanel.Controls.Add(this.ResponseToICPanel);
+            this.MainPanel.Controls.Add(this.InputSignalPanel);
+            this.MainPanel.Controls.Add(this.CombinedResponsePanel);
+            this.MainPanel.Controls.Add(this.ResponseToHarmonicIPPanel);
+            this.MainPanel.Controls.Add(this.SimulationSetupPanel);
             this.MainPanel.Controls.Add(this.PropertiesPanel);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 176);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1055, 559);
+            this.MainPanel.Size = new System.Drawing.Size(1268, 612);
             this.MainPanel.TabIndex = 4;
             // 
-            // StepInputCartesianChart
+            // ResponseToICPanel
             // 
-            this.StepInputCartesianChart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.StepInputCartesianChart.Location = new System.Drawing.Point(295, 0);
-            this.StepInputCartesianChart.Name = "StepInputCartesianChart";
-            this.StepInputCartesianChart.Size = new System.Drawing.Size(760, 559);
-            this.StepInputCartesianChart.TabIndex = 4;
-            this.StepInputCartesianChart.Text = "cartesianChart1";
-            this.StepInputCartesianChart.Visible = false;
+            this.ResponseToICPanel.Controls.Add(this.ResponseToICCartesianChart);
+            this.ResponseToICPanel.Location = new System.Drawing.Point(596, 233);
+            this.ResponseToICPanel.Name = "ResponseToICPanel";
+            this.ResponseToICPanel.Size = new System.Drawing.Size(323, 153);
+            this.ResponseToICPanel.TabIndex = 7;
+            this.ResponseToICPanel.Visible = false;
+            // 
+            // ResponseToICCartesianChart
+            // 
+            this.ResponseToICCartesianChart.Location = new System.Drawing.Point(27, 12);
+            this.ResponseToICCartesianChart.Name = "ResponseToICCartesianChart";
+            this.ResponseToICCartesianChart.Size = new System.Drawing.Size(260, 122);
+            this.ResponseToICCartesianChart.TabIndex = 4;
+            this.ResponseToICCartesianChart.Text = "Response To Initial Conditions";
+            // 
+            // InputSignalPanel
+            // 
+            this.InputSignalPanel.Controls.Add(this.HarmonicInputCartesianChart);
+            this.InputSignalPanel.Location = new System.Drawing.Point(590, 0);
+            this.InputSignalPanel.Name = "InputSignalPanel";
+            this.InputSignalPanel.Size = new System.Drawing.Size(678, 220);
+            this.InputSignalPanel.TabIndex = 6;
+            this.InputSignalPanel.Visible = false;
+            // 
+            // HarmonicInputCartesianChart
+            // 
+            this.HarmonicInputCartesianChart.Location = new System.Drawing.Point(17, 28);
+            this.HarmonicInputCartesianChart.Name = "HarmonicInputCartesianChart";
+            this.HarmonicInputCartesianChart.Size = new System.Drawing.Size(649, 179);
+            this.HarmonicInputCartesianChart.TabIndex = 5;
+            this.HarmonicInputCartesianChart.Text = "Harmonic Input";
+            // 
+            // CombinedResponsePanel
+            // 
+            this.CombinedResponsePanel.Controls.Add(this.CombinedResponseCartesianChart);
+            this.CombinedResponsePanel.Location = new System.Drawing.Point(590, 392);
+            this.CombinedResponsePanel.Name = "CombinedResponsePanel";
+            this.CombinedResponsePanel.Size = new System.Drawing.Size(678, 220);
+            this.CombinedResponsePanel.TabIndex = 9;
+            this.CombinedResponsePanel.Visible = false;
+            // 
+            // CombinedResponseCartesianChart
+            // 
+            this.CombinedResponseCartesianChart.Location = new System.Drawing.Point(17, 14);
+            this.CombinedResponseCartesianChart.Name = "CombinedResponseCartesianChart";
+            this.CombinedResponseCartesianChart.Size = new System.Drawing.Size(649, 203);
+            this.CombinedResponseCartesianChart.TabIndex = 5;
+            this.CombinedResponseCartesianChart.Text = "Harmonic Input";
+            // 
+            // ResponseToHarmonicIPPanel
+            // 
+            this.ResponseToHarmonicIPPanel.Controls.Add(this.ResponseToHarmonicInputCatrtesianChart);
+            this.ResponseToHarmonicIPPanel.Location = new System.Drawing.Point(933, 233);
+            this.ResponseToHarmonicIPPanel.Name = "ResponseToHarmonicIPPanel";
+            this.ResponseToHarmonicIPPanel.Size = new System.Drawing.Size(323, 153);
+            this.ResponseToHarmonicIPPanel.TabIndex = 8;
+            this.ResponseToHarmonicIPPanel.Visible = false;
+            // 
+            // ResponseToHarmonicInputCatrtesianChart
+            // 
+            this.ResponseToHarmonicInputCatrtesianChart.Location = new System.Drawing.Point(27, 12);
+            this.ResponseToHarmonicInputCatrtesianChart.Name = "ResponseToHarmonicInputCatrtesianChart";
+            this.ResponseToHarmonicInputCatrtesianChart.Size = new System.Drawing.Size(260, 122);
+            this.ResponseToHarmonicInputCatrtesianChart.TabIndex = 4;
+            this.ResponseToHarmonicInputCatrtesianChart.Text = "Response ToHarmonic Input";
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1055, 735);
+            this.ClientSize = new System.Drawing.Size(1268, 788);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.NewRibbon);
             this.Controls.Add(this.menuStrip1);
@@ -646,9 +852,18 @@
             this.menuStrip1.PerformLayout();
             this.PropertiesPanel.ResumeLayout(false);
             this.PropertiesPanel.PerformLayout();
-            this.StepInputPanel.ResumeLayout(false);
-            this.StepInputPanel.PerformLayout();
+            this.SimulationSetupPanel.ResumeLayout(false);
+            this.HarmonicInputDataGroupBox.ResumeLayout(false);
+            this.HarmonicInputDataGroupBox.PerformLayout();
+            this.InitialConditionGroupBox.ResumeLayout(false);
+            this.InitialConditionGroupBox.PerformLayout();
+            this.TimeSetupPanel.ResumeLayout(false);
+            this.TimeSetupPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
+            this.ResponseToICPanel.ResumeLayout(false);
+            this.InputSignalPanel.ResumeLayout(false);
+            this.CombinedResponsePanel.ResumeLayout(false);
+            this.ResponseToHarmonicIPPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,9 +884,6 @@
         private System.Windows.Forms.RibbonTab ResultsRibbonTab;
         private System.Windows.Forms.RibbonPanel BuildCarRibbonPanel;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator1;
-        private System.Windows.Forms.RibbonButton CarDrpRibbonButton;
-        private System.Windows.Forms.RibbonButton NewCarRibbonButton;
-        private System.Windows.Forms.RibbonButton ExisitingCarRibbonButton;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readMeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caseStudyToolStripMenuItem;
@@ -687,29 +899,51 @@
         private System.Windows.Forms.Label SpringStiffnessUnitLabel;
         private System.Windows.Forms.Label DampingCoeffUnitLabel;
         private System.Windows.Forms.RibbonPanel InputSignalRibbonPanel;
-        private System.Windows.Forms.RibbonButton StepIPRibbonButton;
+        private System.Windows.Forms.RibbonButton ResponseToICRibbonButton;
         private System.Windows.Forms.RibbonButton HarmonicIPRibbonButton;
-        private System.Windows.Forms.RibbonButton CustomIPRibbonButton;
+        private System.Windows.Forms.RibbonButton CombinedIPRibbonButton;
         private System.Windows.Forms.Label VehicleParameterLabel;
-        private System.Windows.Forms.Panel StepInputPanel;
-        private System.Windows.Forms.Label StepInputHeadingLabel;
+        private System.Windows.Forms.Panel SimulationSetupPanel;
+        private System.Windows.Forms.Label TimeSetupHeadingLabel;
         private System.Windows.Forms.Label StartTimeLabel;
         private System.Windows.Forms.TextBox StartTimeTextBox;
-        private System.Windows.Forms.Label StepAmplitudeUnitLabel;
-        private System.Windows.Forms.Label StepTimeUnitLabel;
+        private System.Windows.Forms.Label InitialVelocityUnitLabel;
+        private System.Windows.Forms.Label InitialDisplacementUnitLabel;
         private System.Windows.Forms.Label TimeStepUnitLabel;
-        private System.Windows.Forms.TextBox StepAmplitudeTextBox;
-        private System.Windows.Forms.TextBox StepTimeTextBox;
+        private System.Windows.Forms.TextBox InitialVelocityTextBox;
+        private System.Windows.Forms.TextBox InitialDisplacementTextBox;
         private System.Windows.Forms.TextBox TimeStepTextBox;
-        private System.Windows.Forms.Label StepAmplitudeLabel;
+        private System.Windows.Forms.Label InitialVelcoityLabel;
         private System.Windows.Forms.Label EndTimeUnitLabel;
-        private System.Windows.Forms.Label StepTimeLabel;
+        private System.Windows.Forms.Label InitialDisplacementLabel;
         private System.Windows.Forms.Label StartTimeUnitLabel;
         private System.Windows.Forms.Label TimeStepLabel;
         private System.Windows.Forms.Label EndTimeLabel;
         private System.Windows.Forms.TextBox EndTimeTextBox;
         private System.Windows.Forms.Panel MainPanel;
-        private LiveCharts.WinForms.CartesianChart StepInputCartesianChart;
+        private LiveCharts.WinForms.CartesianChart ResponseToICCartesianChart;
+        private System.Windows.Forms.Panel TimeSetupPanel;
+        private System.Windows.Forms.GroupBox InitialConditionGroupBox;
+        private System.Windows.Forms.GroupBox HarmonicInputDataGroupBox;
+        private System.Windows.Forms.Label OscillationFrequencyLabel;
+        private System.Windows.Forms.Label ForceAmplitudeLabel;
+        private System.Windows.Forms.TextBox ForceAmplitudeTextBox;
+        private System.Windows.Forms.Label ForceAmplitudeUnitLabel;
+        private System.Windows.Forms.Label OscillationFrequencyUnitLabel;
+        private System.Windows.Forms.TextBox OscillationFrequencyTextBox;
+        private LiveCharts.WinForms.CartesianChart HarmonicInputCartesianChart;
+        private System.Windows.Forms.RibbonPanel RunRibbonPanel;
+        private System.Windows.Forms.RibbonButton RunRibbonButton;
+        private System.Windows.Forms.Button InitializeButton;
+        private System.Windows.Forms.Panel CombinedResponsePanel;
+        private LiveCharts.WinForms.CartesianChart CombinedResponseCartesianChart;
+        private System.Windows.Forms.Panel ResponseToHarmonicIPPanel;
+        private LiveCharts.WinForms.CartesianChart ResponseToHarmonicInputCatrtesianChart;
+        private System.Windows.Forms.Panel ResponseToICPanel;
+        private System.Windows.Forms.Panel InputSignalPanel;
+        private System.Windows.Forms.RibbonButton ribbonButton2;
+        private System.Windows.Forms.RibbonButton NewCarRibbonButton;
+        private System.Windows.Forms.RibbonButton ExistingCarRibbonButton;
         //private System.Windows.Forms.RibbonPanel NewCarRibbonPanel;
     }
 }

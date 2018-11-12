@@ -650,12 +650,5 @@ namespace Input
                 return TimeNeedsToRecalculate || FrequencyNeedsToRecalculate || ForceNeedsToRecalculate || VehicleDataNeedsToRecalculate;
             }
         }
-
-        
-        public void Save(ref BinaryWriter writer)
-        {
-            writer.Write("Version");
-        }
-
     }
 }

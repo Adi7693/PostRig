@@ -170,12 +170,6 @@ namespace PostRig
         }
 
 
-        //Hide Property Panel and Open Initialization Panel
-        private void test(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void CarDrpRibbonButton_Click(object sender, EventArgs e)
         {
             this.PropertiesPanel.Visible = true;

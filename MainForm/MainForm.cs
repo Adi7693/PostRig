@@ -26,6 +26,9 @@ namespace PostRig
         private bool HarmonicInputNeedsToRecalculate = true;
         private bool ResponseToHarmonicInputNeedsToRecalculate = true;
         private bool CombinedResponseNeedsToRecalculate = true;
+
+
+
         private delegate void LastActiveTab(object sender, EventArgs e);
 
 
@@ -237,9 +240,11 @@ namespace PostRig
 
         private void InitializeButton_Click(object sender, EventArgs e)
         {
-            Doc.Input.Calculate();
+            double CalcTime = Doc.Input.Calculate();
 
             // Plot Input Force Oscillations
+
+            DateTime time = DateTime.Now;
 
             if (HarmonicInputNeedsToRecalculate)
             {
@@ -352,6 +357,8 @@ namespace PostRig
                 });
 
                 ResponseToICNeedsToRecalculate = false;
+
+                
             }
 
 
@@ -464,6 +471,9 @@ namespace PostRig
                     }
                 });
 
+                double t = (DateTime.Now - time).TotalMilliseconds;
+
+                MessageBox.Show("Calc: " + CalcTime.ToString() + "\n" + "plot: " + t.ToString());
                 CombinedResponseNeedsToRecalculate = false;
             }
         }

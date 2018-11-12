@@ -13,6 +13,16 @@ namespace Input
         private bool ForceNeedsToRecalculate;
         private bool VehicleDataNeedsToRecalculate;
 
+
+        private double _tTime = 0.0;
+        private double _tCosinTerm = 0.0;
+        private double _tHarmonicForce = 0.0;
+        private double _tResponseToHarmonicIP = 0.0;
+        private double _tResponseToInitialConditions = 0.0;
+        private double _tTotalResponse = 0.0;
+        private double _tStepInput = 0.0;
+
+
         #region Constructor
         public InputData()
         {
@@ -34,6 +44,15 @@ namespace Input
             DampingCoefficient = 1.0;
             InitialDisplacement = 1.0;
             InitialVelocity = 0.0;
+
+
+            _tTime = 0.0;
+            _tCosinTerm = 0.0;
+            _tHarmonicForce = 0.0;
+            _tResponseToHarmonicIP = 0.0;
+            _tResponseToInitialConditions = 0.0;
+            _tTotalResponse = 0.0;
+            _tStepInput = 0.0;
         }
         #endregion
 
@@ -301,7 +320,7 @@ namespace Input
         {
             get
             {
-                return 2 * Math.PI * ExcitationFrequencyHz;
+                return 2.0 * Math.PI * ExcitationFrequencyHz;
             }
 
         }
@@ -322,7 +341,7 @@ namespace Input
         {
             get
             {
-                return (1 / (2 * Math.PI)) * Math.Sqrt(SpringStiffness / VehicleMass);
+                return (1.0 / (2.0 * Math.PI)) * Math.Sqrt(SpringStiffness / VehicleMass);
             }
         }
 
@@ -331,7 +350,7 @@ namespace Input
         {
             get
             {
-                return 2 * Math.Sqrt(VehicleMass * SpringStiffness);
+                return 2.0 * Math.Sqrt(VehicleMass * SpringStiffness);
             }
         }
 
@@ -390,7 +409,7 @@ namespace Input
         {
             get
             {
-                return Math.Sqrt(1 - Math.Pow(DampingRatio, 2)) * NaturalFrequencyRad;
+                return Math.Sqrt(1.0 - Math.Pow(DampingRatio, 2)) * NaturalFrequencyRad;
             }
         }
         #endregion
@@ -423,11 +442,15 @@ namespace Input
 
                 TimeIntervals.Clear();
 
+                DateTime time = DateTime.Now;
+
                 for (double i = StartTime; i <= EndTime + TimeStep / 2.0; i += TimeStep)
                 {
                     double interval = Math.Round(i, 6);
                     TimeIntervals.Add(interval);
                 }
+
+                _tTime = (DateTime.Now - time).TotalMilliseconds;
 
                 TimeNeedsToRecalculate = false;
 
@@ -447,6 +470,9 @@ namespace Input
 
                 StepInput.Clear();
 
+                DateTime time = DateTime.Now;
+
+
                 foreach (double item in TimeIntervals)
                 {
 
@@ -461,10 +487,12 @@ namespace Input
                     }
 
                 }
+
+                _tStepInput = (DateTime.Now - time).TotalMilliseconds;
             }
         }
 
-        private void CosineCalculate()
+        private void CosineFuntionCalculate()
         {
             if (FrequencyNeedsToRecalculate)
             {
@@ -475,6 +503,7 @@ namespace Input
 
                 CosineOscillation.Clear();
 
+                DateTime time = DateTime.Now;
 
                 //Access Time Data from TimeData Project
                 foreach (double item in TimeIntervals)
@@ -485,6 +514,10 @@ namespace Input
                     CosineOscillation.Add(w);
                 }
 
+
+                _tCosinTerm = (DateTime.Now - time).TotalMilliseconds;
+
+
                 FrequencyNeedsToRecalculate = false;
 
                 ForceNeedsToRecalculate = true;
@@ -492,7 +525,7 @@ namespace Input
             }
         }
 
-        private void ForceCalculate()
+        private void HarmonicForceCalculate()
         {
             if (ForceNeedsToRecalculate)
             {
@@ -504,6 +537,9 @@ namespace Input
 
                 InputForceOscillations.Clear();
 
+                DateTime time = DateTime.Now;
+
+
                 foreach (double item in CosineOscillation)
 
 
@@ -513,13 +549,16 @@ namespace Input
 
                     InputForceOscillations.Add(F);
                 }
+
+                _tHarmonicForce = (DateTime.Now - time).TotalMilliseconds;
+
                 ForceNeedsToRecalculate = false;
 
                 VehicleDataNeedsToRecalculate = true;
             }
         }
 
-        private void ForcedVibrationDisplacementCalculate()
+        private void ResponseToHarmonicIPCalculate()
         {
             if (VehicleDataNeedsToRecalculate)
             {
@@ -530,7 +569,10 @@ namespace Input
 
                 ResponseToHarmonicInput.Clear();
 
-                if (Force == 0 || ExcitationFrequencyHz == 0)
+                DateTime time = DateTime.Now;
+
+
+                if (Force == 0.0 || ExcitationFrequencyHz == 0.0)
                 {
                     foreach (double item in TimeIntervals)
                     {
@@ -540,16 +582,21 @@ namespace Input
 
                 }
 
-                foreach (double item in TimeIntervals)
+                else
                 {
-                    double xOfTime = StaticDisplacement * TransferFunction * Math.Cos((ExcitationFrequencyRad * item) + Phy);
-                    ResponseToHarmonicInput.Add(xOfTime);
+                    foreach (double item in TimeIntervals)
+                    {
+                        double xOfTime = StaticDisplacement * TransferFunction * Math.Cos((ExcitationFrequencyRad * item) + Phy);
+                        ResponseToHarmonicInput.Add(xOfTime);
+                    }
                 }
+                _tResponseToHarmonicIP = (DateTime.Now - time).TotalMilliseconds;
+
 
             }
         }
 
-        private void InitialConditionDisplacementCalculate()
+        private void ResponseToInitialConditionsCalculate()
         {
             if (VehicleDataNeedsToRecalculate)
             {
@@ -561,7 +608,9 @@ namespace Input
 
             ResponseToInitialConditions.Clear();
 
-            if (InitialDisplacement == 0 && InitialVelocity == 0)
+            DateTime time = DateTime.Now;
+
+            if (InitialDisplacement == 0.0 && InitialVelocity == 0.0)
             {
                 foreach (double item in TimeIntervals)
                 {
@@ -576,7 +625,7 @@ namespace Input
             {
                 foreach (double item in TimeIntervals)
                 {
-                    if (DampingRatio < 1)
+                    if (DampingRatio < 1.0)
                     {
                         double C1 = InitialDisplacement;
                         double C2 = (InitialVelocity + (DampingRatio * NaturalFrequencyRad * InitialDisplacement)) / DampedNaturalFrequency;
@@ -589,7 +638,7 @@ namespace Input
                         ResponseToInitialConditions.Add(x);
                     }
 
-                    else if (DampingRatio == 1)
+                    else if (DampingRatio == 1.0)
                     {
                         double C1 = InitialDisplacement;
                         double C2 = InitialVelocity + (NaturalFrequencyRad * InitialDisplacement);
@@ -598,7 +647,7 @@ namespace Input
                         ResponseToInitialConditions.Add(x);
                     }
 
-                    else if (DampingRatio > 1)
+                    else if (DampingRatio > 1.0)
                     {
                         double C1 = (InitialDisplacement * NaturalFrequencyRad * (DampingRatio + Math.Sqrt(Math.Pow(DampingRatio, 2) - 1)) + InitialVelocity) / (2 * NaturalFrequencyRad * Math.Sqrt(Math.Pow(DampingRatio, 2) - 1));
                         double C2 = (-InitialDisplacement * NaturalFrequencyRad * (DampingRatio - Math.Sqrt(Math.Pow(DampingRatio, 2) - 1)) - InitialVelocity) / (2 * NaturalFrequencyRad * Math.Sqrt(Math.Pow(DampingRatio, 2) - 1));
@@ -608,8 +657,8 @@ namespace Input
                     }
 
                 }
-
             }
+            _tResponseToInitialConditions = (DateTime.Now - time).TotalMilliseconds;
         }
 
         private void TotalResponseCalculate()
@@ -622,24 +671,37 @@ namespace Input
                 }
 
                 TotalResponse.Clear();
+                DateTime time = DateTime.Now;
 
                 for (int i = 0; i < TimeIntervals.Count; i++)
                 {
                     double x = ResponseToInitialConditions[i] + ResponseToHarmonicInput[i];
                     TotalResponse.Add(x);
                 }
+
+                _tTotalResponse = (DateTime.Now - time).TotalMilliseconds;
                 VehicleDataNeedsToRecalculate = false;
             }
         }
-        public void Calculate()
+        public double Calculate()
         {
+            _tTime = 0.0;
+            _tCosinTerm = 0.0;
+            _tHarmonicForce = 0.0;
+            _tResponseToHarmonicIP = 0.0;
+            _tResponseToInitialConditions = 0.0;
+            _tTotalResponse = 0.0;
+            _tStepInput = 0.0;
+
             TimeCalculate();
             StepInputCalculate();
-            CosineCalculate();
-            ForceCalculate();
-            InitialConditionDisplacementCalculate();
-            ForcedVibrationDisplacementCalculate();
+            CosineFuntionCalculate();
+            HarmonicForceCalculate();
+            ResponseToInitialConditionsCalculate();
+            ResponseToHarmonicIPCalculate();
             TotalResponseCalculate();
+
+            return _tTime + _tStepInput + _tCosinTerm + _tHarmonicForce + _tResponseToHarmonicIP + _tResponseToInitialConditions+ _tTotalResponse;
         }
         #endregion
 

@@ -287,7 +287,7 @@
             this.ResponseToICRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
             this.ResponseToICRibbonButton.Name = "ResponseToICRibbonButton";
             this.ResponseToICRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("ResponseToICRibbonButton.SmallImage")));
-            this.ResponseToICRibbonButton.Text = "Initial Condition Response";
+            this.ResponseToICRibbonButton.Text = "Initial Condition";
             this.ResponseToICRibbonButton.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Right;
             this.ResponseToICRibbonButton.Click += new System.EventHandler(this.ResponseToICRibbonButton_Click);
             // 

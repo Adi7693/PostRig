@@ -51,7 +51,7 @@ namespace PostRig
             }
         }
 
-       
+
 
         //Display Ribbon on Clicking New
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +75,7 @@ namespace PostRig
         {
             UpdateUIFromDocument();
             this.PropertiesPanel.Visible = true;
+            //this.SimulationSetupPanel.Visible = true;
             //this.PropertiesPanel.BringToFront();
 
 
@@ -129,7 +130,7 @@ namespace PostRig
             if (double.TryParse(StartTimeTextBox.Text, out newStartTime))
             {
                 Doc.Input.StartTime = newStartTime;
-                
+
                 ResponseToICNeedsToRecalculate = true;
                 ResponseToHarmonicInputNeedsToRecalculate = true;
                 HarmonicInputNeedsToRecalculate = true;
@@ -204,7 +205,7 @@ namespace PostRig
         {
             double newForceAmplitude = 0.0;
 
-            if(double.TryParse(ForceAmplitudeTextBox.Text,out newForceAmplitude))
+            if (double.TryParse(ForceAmplitudeTextBox.Text, out newForceAmplitude))
             {
                 Doc.Input.Force = newForceAmplitude;
                 ResponseToHarmonicInputNeedsToRecalculate = true;
@@ -213,101 +214,23 @@ namespace PostRig
 
         }
 
-        private void ResponseToICRibbonButton_Click(object sender, EventArgs e)
+        // Run Button Not Working
 
+        private void RunRibbonButton_Click(object sender, EventArgs e)
         {
-            this.PropertiesPanel.Visible = true;
-            this.SimulationSetupPanel.Visible = true;
-            this.HarmonicInputDataGroupBox.Visible = true;
-            this.InitialConditionGroupBox.Visible = true;
-            this.InputSignalPanel.Visible = true;
-            this.ResponseToICPanel.Visible = true;
-            this.ResponseToHarmonicIPPanel.Visible = true;
-            this.CombinedResponsePanel.Visible = true;
-        }
-
-        private void HarmonicIPRibbonButton_Click(object sender, EventArgs e)
-        {
-            this.PropertiesPanel.Visible = true;
-            this.SimulationSetupPanel.Visible = true;
-            this.HarmonicInputDataGroupBox.Visible = true;
-            this.InitialConditionGroupBox.Visible = true;
-            this.InputSignalPanel.Visible = true;
-            this.ResponseToICPanel.Visible = true;
-            this.ResponseToHarmonicIPPanel.Visible = true;
-            this.CombinedResponsePanel.Visible = true;
-        }
-
-        private void InitializeButton_Click(object sender, EventArgs e)
-        {
-            double CalcTime = Doc.Input.Calculate();
-
-            // Plot Input Force Oscillations
+            Doc.Input.Calculate();
 
             DateTime time = DateTime.Now;
 
-            if (HarmonicInputNeedsToRecalculate)
+            // Plot Response To Initial Condition
+
+            if (this.ICCheckBox.Checked)
             {
-                HarmonicInputCartesianChart.Series.Clear();
-
-                HarmonicInputCartesianChart.Series = new SeriesCollection
+                if (ResponseToICNeedsToRecalculate)
                 {
-                    new LineSeries
-                    {
-                        Title="Harmonic Force Input",
-                        Values = new ChartValues<double>(Doc.Input.InputForceOscillations),
-                        PointGeometry = null
-                    }
-                };
+                    ResponseToICCartesianChart.Series.Clear();
 
-                HarmonicInputCartesianChart.AxisX.Clear();
-
-                HarmonicInputCartesianChart.AxisX.Add(new Axis
-                {
-                    Title = "Time (s)",
-                    FontSize = 15,
-                    Labels = new List<string>(Doc.Input.TimeIntervals.Select(x => x.ToString())),
-
-                    Sections = new SectionsCollection
-                    {
-                        new AxisSection
-                        {
-                            Value=0.0,
-                            Stroke=Brushes.GreenYellow,
-                            StrokeThickness=3
-                        }
-                    }
-                });
-
-                HarmonicInputCartesianChart.AxisY.Clear();
-
-                HarmonicInputCartesianChart.AxisY.Add(new Axis
-                {
-                    Title = "Force (N)",
-                    FontSize = 15,
-                    Sections = new SectionsCollection
-                    {
-                        new AxisSection
-                        {
-                            Value = 0.0,
-                            Stroke = Brushes.GreenYellow,
-                            StrokeThickness=3,
-                        }
-                    }
-
-                });
-
-                HarmonicInputNeedsToRecalculate = false;
-
-            }
-
-            // Plot Response To Initial Conditions
-
-            if (ResponseToICNeedsToRecalculate)
-            {
-                ResponseToICCartesianChart.Series.Clear();
-
-                ResponseToICCartesianChart.Series = new SeriesCollection
+                    ResponseToICCartesianChart.Series = new SeriesCollection
                 {
                     new LineSeries
                     {
@@ -318,15 +241,15 @@ namespace PostRig
 
                 };
 
-                ResponseToICCartesianChart.AxisX.Clear();
+                    ResponseToICCartesianChart.AxisX.Clear();
 
-                ResponseToICCartesianChart.AxisX.Add(new Axis
-                {
-                    Title = "Time",
-                    FontSize = 15,
-                    Labels = new List<string>(Doc.Input.TimeIntervals.Select(x => x.ToString())),
+                    ResponseToICCartesianChart.AxisX.Add(new Axis
+                    {
+                        Title = "Time",
+                        FontSize = 15,
+                        Labels = new List<string>(Doc.Input.TimeIntervals.Select(x => x.ToString())),
 
-                    Sections = new SectionsCollection
+                        Sections = new SectionsCollection
                     {
                         new AxisSection
                         {
@@ -336,16 +259,16 @@ namespace PostRig
                         }
                     }
 
-                });
+                    });
 
-                ResponseToICCartesianChart.AxisY.Clear();
+                    ResponseToICCartesianChart.AxisY.Clear();
 
-                ResponseToICCartesianChart.AxisY.Add(new Axis
-                {
-                    Title = "Displacement (m)",
-                    FontSize = 15,
+                    ResponseToICCartesianChart.AxisY.Add(new Axis
+                    {
+                        Title = "Displacement (m)",
+                        FontSize = 15,
 
-                    Sections = new SectionsCollection
+                        Sections = new SectionsCollection
                     {
                         new AxisSection
                         {
@@ -354,19 +277,94 @@ namespace PostRig
                             StrokeThickness=3
                         }
                     }
-                });
+                    });
 
-                ResponseToICNeedsToRecalculate = false;
+                    ResponseToICNeedsToRecalculate = false;
+                    this.InputSignalPanel.Visible = false;
+                    this.ResponseToICPanel.Visible = true;
+                    this.ResponseToHarmonicIPPanel.Visible = false;
+                    this.CombinedResponsePanel.Visible = false;
 
-                
+
+                }
+
             }
 
+            // Plot Harmonic Input
 
-            if(ResponseToHarmonicInputNeedsToRecalculate)
+            if (this.HarmonicInputCheckBox.Checked)
             {
-                ResponseToHarmonicInputCatrtesianChart.Series.Clear();
+                if (HarmonicInputNeedsToRecalculate)
+                {
+                    HarmonicInputCartesianChart.Series.Clear();
 
-                ResponseToHarmonicInputCatrtesianChart.Series = new SeriesCollection
+                    HarmonicInputCartesianChart.Series = new SeriesCollection
+                {
+                    new LineSeries
+                    {
+                        Title="Harmonic Force Input",
+                        Values = new ChartValues<double>(Doc.Input.InputForceOscillations),
+                        PointGeometry = null
+                    }};
+
+                    HarmonicInputCartesianChart.AxisX.Clear();
+
+                    HarmonicInputCartesianChart.AxisX.Add(new Axis
+                    {
+                        Title = "Time (s)",
+                        FontSize = 15,
+                        Labels = new List<string>(Doc.Input.TimeIntervals.Select(x => x.ToString())),
+
+                        Sections = new SectionsCollection
+                    {
+                        new AxisSection
+                        {
+                            Value=0.0,
+                            Stroke=Brushes.GreenYellow,
+                            StrokeThickness=3
+                        }
+
+                    }
+
+                    });
+
+                    HarmonicInputCartesianChart.AxisY.Clear();
+
+                    HarmonicInputCartesianChart.AxisY.Add(new Axis
+                    {
+                        Title = "Force (N)",
+                        FontSize = 15,
+                        Sections = new SectionsCollection
+                    {
+                        new AxisSection
+                        {
+                            Value = 0.0,
+                            Stroke = Brushes.GreenYellow,
+                            StrokeThickness=3,
+                        }
+                    }
+
+                    });
+
+
+                    HarmonicInputNeedsToRecalculate = false;
+                    this.InputSignalPanel.Visible = true;
+                    this.ResponseToICPanel.Visible = false;
+                    this.ResponseToHarmonicIPPanel.Visible = true;
+                    this.CombinedResponsePanel.Visible = false;
+
+                }
+            }
+
+            // Plot Harmonic Response
+
+            if (this.HarmonicInputCheckBox.Checked)
+            {
+                if (ResponseToHarmonicInputNeedsToRecalculate)
+                {
+                    ResponseToHarmonicInputCartesianChart.Series.Clear();
+
+                    ResponseToHarmonicInputCartesianChart.Series = new SeriesCollection
                 {
                     new LineSeries
                     {
@@ -377,15 +375,15 @@ namespace PostRig
                     }
                 };
 
-                ResponseToHarmonicInputCatrtesianChart.AxisX.Clear();
+                    ResponseToHarmonicInputCartesianChart.AxisX.Clear();
 
-                ResponseToHarmonicInputCatrtesianChart.AxisX.Add(new Axis
-                {
-                    Title = "Time",
-                    FontSize = 15,
-                    Labels=new List<string>(Doc.Input.TimeIntervals.Select(x=>x.ToString())),
+                    ResponseToHarmonicInputCartesianChart.AxisX.Add(new Axis
+                    {
+                        Title = "Time",
+                        FontSize = 15,
+                        Labels = new List<string>(Doc.Input.TimeIntervals.Select(x => x.ToString())),
 
-                    Sections = new SectionsCollection
+                        Sections = new SectionsCollection
                     {
                         new AxisSection
                         {
@@ -394,16 +392,16 @@ namespace PostRig
                             StrokeThickness=3
                         }
                     }
-                });
+                    });
 
-                ResponseToHarmonicInputCatrtesianChart.AxisY.Clear();
+                    ResponseToHarmonicInputCartesianChart.AxisY.Clear();
 
-                ResponseToHarmonicInputCatrtesianChart.AxisY.Add(new Axis
-                {
-                    Title = "Displacement (m)",
-                    FontSize=15,
+                    ResponseToHarmonicInputCartesianChart.AxisY.Add(new Axis
+                    {
+                        Title = "Displacement (m)",
+                        FontSize = 15,
 
-                    Sections = new SectionsCollection
+                        Sections = new SectionsCollection
                     {
                         new AxisSection
                         {
@@ -412,12 +410,13 @@ namespace PostRig
                             StrokeThickness=3
                         }
                     }
-                });
+                    });
 
-                ResponseToHarmonicInputNeedsToRecalculate = false;
+                    ResponseToHarmonicInputNeedsToRecalculate = false;
+                }
             }
 
-            
+            // Plot Combined Response
 
             if (CombinedResponseNeedsToRecalculate)
             {
@@ -471,26 +470,117 @@ namespace PostRig
                     }
                 });
 
-                double t = (DateTime.Now - time).TotalMilliseconds;
-
-                MessageBox.Show("Calc: " + CalcTime.ToString() + "\n" + "plot: " + t.ToString());
+                //double t = (DateTime.Now - time).TotalMilliseconds;
+                //MessageBox.Show("Calc: " + CalcTime.ToString() + "\n" + "plot: " + t.ToString());
                 CombinedResponseNeedsToRecalculate = false;
+                this.InputSignalPanel.Visible = true;
+                this.ResponseToICPanel.Visible = true;
+                this.ResponseToHarmonicIPPanel.Visible = true;
+                this.CombinedResponsePanel.Visible = true;
+
             }
         }
 
         // Hide Property Panel and Open Initialization Panel
 
+        private void DesignRibbonTab_ActiveChanged(object sender, EventArgs e)
+        {
+            this.PropertiesPanel.Visible = true;
+            this.SimulationSetupPanel.Visible = false;
+            this.ICCheckBox.Visible = false;
+            this.HarmonicInputCheckBox.Visible = false;
+            this.CombinedResponseCheckBox.Visible = false;
+
+        }
+
         private void SimSetupRibbonTab_ActiveChanged(object sender, EventArgs e)
         {
             this.SimulationSetupPanel.Visible = true;
             this.PropertiesPanel.Visible = true;
+            this.ICCheckBox.Visible = true;
+            this.HarmonicInputCheckBox.Visible = true;
+            this.CombinedResponseCheckBox.Visible = true;
         }
 
-        private void DesignRibbonTab_ActiveChanged(object sender, EventArgs e)
+        private void ICCheckBox_Click(object sender, EventArgs e)
         {
-            this.PropertiesPanel.Visible = true;
-            this.SimulationSetupPanel.Visible = true;
+            this.ICCheckBox.Checked = true;
+            this.HarmonicInputCheckBox.Checked = false;
+            this.CombinedResponseCheckBox.Checked = false;
+            this.InitialConditionGroupBox.Visible = true;
+            this.HarmonicInputDataGroupBox.Visible = false;
+
+            ResponseToICNeedsToRecalculate = true;
+            HarmonicInputNeedsToRecalculate = false;
+            CombinedResponseNeedsToRecalculate = false;
         }
+
+        private void HarmonicInputCheckBox_Click(object sender, EventArgs e)
+        {
+            this.ICCheckBox.Checked = false;
+            this.HarmonicInputCheckBox.Checked = true;
+            this.CombinedResponseCheckBox.Checked = false;
+            this.InitialConditionGroupBox.Visible = false;
+            this.HarmonicInputDataGroupBox.Visible = true;
+
+            ResponseToICNeedsToRecalculate = false;
+            HarmonicInputNeedsToRecalculate = true;
+            CombinedResponseNeedsToRecalculate = false;
+        }
+
+        private void CombinedResponseCheckBox_Click(object sender, EventArgs e)
+        {
+            this.ICCheckBox.Checked = true;
+            this.HarmonicInputCheckBox.Checked = true;
+            this.CombinedResponseCheckBox.Checked = true;
+            this.InitialConditionGroupBox.Visible = true;
+            this.HarmonicInputDataGroupBox.Visible = true;
+
+            ResponseToICNeedsToRecalculate = true;
+            HarmonicInputNeedsToRecalculate = true;
+            CombinedResponseNeedsToRecalculate = true;
+        }
+
+
+        private void ResponseToICRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.ICCheckBox.Checked = true;
+            this.HarmonicInputCheckBox.Checked = false;
+            this.CombinedResponseCheckBox.Checked = false;
+            this.InitialConditionGroupBox.Visible = true;
+            this.HarmonicInputDataGroupBox.Visible = false;
+
+            ResponseToICNeedsToRecalculate = true;
+            HarmonicInputNeedsToRecalculate = false;
+            CombinedResponseNeedsToRecalculate = false;
+        }
+
+        private void HarmonicIPRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.ICCheckBox.Checked = false;
+            this.HarmonicInputCheckBox.Checked = true;
+            this.CombinedResponseCheckBox.Checked = false;
+            this.InitialConditionGroupBox.Visible = false;
+            this.HarmonicInputDataGroupBox.Visible = true;
+
+            ResponseToICNeedsToRecalculate = false;
+            HarmonicInputNeedsToRecalculate = true;
+            CombinedResponseNeedsToRecalculate = false;
+        }
+
+        private void CombinedResponseRibbonButton_Click(object sender, EventArgs e)
+        {
+            this.ICCheckBox.Checked = true;
+            this.HarmonicInputCheckBox.Checked = true;
+            this.CombinedResponseCheckBox.Checked = true;
+            this.InitialConditionGroupBox.Visible = true;
+            this.HarmonicInputDataGroupBox.Visible = true;
+
+            ResponseToICNeedsToRecalculate = true;
+            HarmonicInputNeedsToRecalculate = true;
+            CombinedResponseNeedsToRecalculate = true;
+        }
+
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -509,6 +599,9 @@ namespace PostRig
             {
                 UpdateUIFromDocument();
             }
+
+            NewRibbon.Visible = true;
+
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -531,7 +624,7 @@ namespace PostRig
 
                 dlg.InitialDirectory = "C:\\";
 
-                dlg.DefaultExt = "*.postrig";
+                dlg.Filter = "PostRig Files|*.postrig";
 
                 dlg.AddExtension = true;
 

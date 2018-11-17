@@ -44,16 +44,15 @@
             this.DesignRibbonTab = new System.Windows.Forms.RibbonTab();
             this.BuildCarRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.NewCarRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.ExistingCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.SimSetupRibbonTab = new System.Windows.Forms.RibbonTab();
             this.InputSignalRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ResponseToICRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
-            this.HarmonicIPRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.CombinedIPRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.ResultsRibbonTab = new System.Windows.Forms.RibbonTab();
+            this.HarmonicResponseRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.CombinedResponseRibbonButton = new System.Windows.Forms.RibbonButton();
             this.RunRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.RunRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.ResultsRibbonTab = new System.Windows.Forms.RibbonTab();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
             this.PropertiesPanel = new System.Windows.Forms.Panel();
             this.VehicleParameterLabel = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@
             this.DampingCoeffUnitLabel = new System.Windows.Forms.Label();
             this.VehicleMassTextBox = new System.Windows.Forms.TextBox();
             this.SimulationSetupPanel = new System.Windows.Forms.Panel();
-            this.InitializeButton = new System.Windows.Forms.Button();
             this.HarmonicInputDataGroupBox = new System.Windows.Forms.GroupBox();
             this.OscillationFrequencyLabel = new System.Windows.Forms.Label();
             this.ForceAmplitudeLabel = new System.Windows.Forms.Label();
@@ -101,7 +99,12 @@
             this.CombinedResponsePanel = new System.Windows.Forms.Panel();
             this.CombinedResponseCartesianChart = new LiveCharts.WinForms.CartesianChart();
             this.ResponseToHarmonicIPPanel = new System.Windows.Forms.Panel();
-            this.ResponseToHarmonicInputCatrtesianChart = new LiveCharts.WinForms.CartesianChart();
+            this.ResponseToHarmonicInputCartesianChart = new LiveCharts.WinForms.CartesianChart();
+            this.ICCheckBox = new System.Windows.Forms.CheckBox();
+            this.HarmonicInputCheckBox = new System.Windows.Forms.CheckBox();
+            this.CombinedResponseCheckBox = new System.Windows.Forms.CheckBox();
+            this.SystemCharacteristicsRibbonPanel = new System.Windows.Forms.RibbonPanel();
+            this.OutputParametersRibbonButton = new System.Windows.Forms.RibbonButton();
             this.menuStrip1.SuspendLayout();
             this.PropertiesPanel.SuspendLayout();
             this.SimulationSetupPanel.SuspendLayout();
@@ -242,7 +245,6 @@
             // BuildCarRibbonPanel
             // 
             this.BuildCarRibbonPanel.Items.Add(this.NewCarRibbonButton);
-            this.BuildCarRibbonPanel.Items.Add(this.ExistingCarRibbonButton);
             this.BuildCarRibbonPanel.Name = "BuildCarRibbonPanel";
             this.BuildCarRibbonPanel.Text = "Build Car";
             // 
@@ -255,26 +257,19 @@
             this.NewCarRibbonButton.Text = "New";
             this.NewCarRibbonButton.Click += new System.EventHandler(this.NewCarRibbonButton_Click);
             // 
-            // ExistingCarRibbonButton
-            // 
-            this.ExistingCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("ExistingCarRibbonButton.Image")));
-            this.ExistingCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("ExistingCarRibbonButton.LargeImage")));
-            this.ExistingCarRibbonButton.Name = "ExistingCarRibbonButton";
-            this.ExistingCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("ExistingCarRibbonButton.SmallImage")));
-            this.ExistingCarRibbonButton.Text = "Existing";
-            // 
             // SimSetupRibbonTab
             // 
             this.SimSetupRibbonTab.Name = "SimSetupRibbonTab";
             this.SimSetupRibbonTab.Panels.Add(this.InputSignalRibbonPanel);
+            this.SimSetupRibbonTab.Panels.Add(this.RunRibbonPanel);
             this.SimSetupRibbonTab.Text = "Simulation Setup";
             this.SimSetupRibbonTab.ActiveChanged += new System.EventHandler(this.SimSetupRibbonTab_ActiveChanged);
             // 
             // InputSignalRibbonPanel
             // 
             this.InputSignalRibbonPanel.Items.Add(this.ResponseToICRibbonButton);
-            this.InputSignalRibbonPanel.Items.Add(this.HarmonicIPRibbonButton);
-            this.InputSignalRibbonPanel.Items.Add(this.CombinedIPRibbonButton);
+            this.InputSignalRibbonPanel.Items.Add(this.HarmonicResponseRibbonButton);
+            this.InputSignalRibbonPanel.Items.Add(this.CombinedResponseRibbonButton);
             this.InputSignalRibbonPanel.Name = "InputSignalRibbonPanel";
             this.InputSignalRibbonPanel.Text = "Input Signal";
             // 
@@ -299,32 +294,27 @@
             this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
             this.ribbonButton2.Text = "ribbonButton2";
             // 
-            // HarmonicIPRibbonButton
+            // HarmonicResponseRibbonButton
             // 
-            this.HarmonicIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.Image")));
-            this.HarmonicIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.LargeImage")));
-            this.HarmonicIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.HarmonicIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.HarmonicIPRibbonButton.Name = "HarmonicIPRibbonButton";
-            this.HarmonicIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("HarmonicIPRibbonButton.SmallImage")));
-            this.HarmonicIPRibbonButton.Text = "Harmonic Input";
-            this.HarmonicIPRibbonButton.Click += new System.EventHandler(this.HarmonicIPRibbonButton_Click);
+            this.HarmonicResponseRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("HarmonicResponseRibbonButton.Image")));
+            this.HarmonicResponseRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("HarmonicResponseRibbonButton.LargeImage")));
+            this.HarmonicResponseRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.HarmonicResponseRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.HarmonicResponseRibbonButton.Name = "HarmonicResponseRibbonButton";
+            this.HarmonicResponseRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("HarmonicResponseRibbonButton.SmallImage")));
+            this.HarmonicResponseRibbonButton.Text = "Harmonic Input";
+            this.HarmonicResponseRibbonButton.Click += new System.EventHandler(this.HarmonicIPRibbonButton_Click);
             // 
-            // CombinedIPRibbonButton
+            // CombinedResponseRibbonButton
             // 
-            this.CombinedIPRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CombinedIPRibbonButton.Image")));
-            this.CombinedIPRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CombinedIPRibbonButton.LargeImage")));
-            this.CombinedIPRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.CombinedIPRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.CombinedIPRibbonButton.Name = "CombinedIPRibbonButton";
-            this.CombinedIPRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CombinedIPRibbonButton.SmallImage")));
-            this.CombinedIPRibbonButton.Text = "Combined Input";
-            // 
-            // ResultsRibbonTab
-            // 
-            this.ResultsRibbonTab.Name = "ResultsRibbonTab";
-            this.ResultsRibbonTab.Panels.Add(this.RunRibbonPanel);
-            this.ResultsRibbonTab.Text = "Results";
+            this.CombinedResponseRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("CombinedResponseRibbonButton.Image")));
+            this.CombinedResponseRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("CombinedResponseRibbonButton.LargeImage")));
+            this.CombinedResponseRibbonButton.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.CombinedResponseRibbonButton.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
+            this.CombinedResponseRibbonButton.Name = "CombinedResponseRibbonButton";
+            this.CombinedResponseRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("CombinedResponseRibbonButton.SmallImage")));
+            this.CombinedResponseRibbonButton.Text = "Combined Input";
+            this.CombinedResponseRibbonButton.Click += new System.EventHandler(this.CombinedResponseRibbonButton_Click);
             // 
             // RunRibbonPanel
             // 
@@ -339,6 +329,13 @@
             this.RunRibbonButton.Name = "RunRibbonButton";
             this.RunRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("RunRibbonButton.SmallImage")));
             this.RunRibbonButton.Text = "Run";
+            this.RunRibbonButton.Click += new System.EventHandler(this.RunRibbonButton_Click);
+            // 
+            // ResultsRibbonTab
+            // 
+            this.ResultsRibbonTab.Name = "ResultsRibbonTab";
+            this.ResultsRibbonTab.Panels.Add(this.SystemCharacteristicsRibbonPanel);
+            this.ResultsRibbonTab.Text = "Results";
             // 
             // ribbonSeparator1
             // 
@@ -465,7 +462,6 @@
             // 
             this.SimulationSetupPanel.BackColor = System.Drawing.Color.Silver;
             this.SimulationSetupPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.SimulationSetupPanel.Controls.Add(this.InitializeButton);
             this.SimulationSetupPanel.Controls.Add(this.HarmonicInputDataGroupBox);
             this.SimulationSetupPanel.Controls.Add(this.InitialConditionGroupBox);
             this.SimulationSetupPanel.Controls.Add(this.TimeSetupPanel);
@@ -475,16 +471,6 @@
             this.SimulationSetupPanel.Size = new System.Drawing.Size(295, 612);
             this.SimulationSetupPanel.TabIndex = 3;
             this.SimulationSetupPanel.Visible = false;
-            // 
-            // InitializeButton
-            // 
-            this.InitializeButton.Location = new System.Drawing.Point(7, 361);
-            this.InitializeButton.Name = "InitializeButton";
-            this.InitializeButton.Size = new System.Drawing.Size(109, 29);
-            this.InitializeButton.TabIndex = 8;
-            this.InitializeButton.Text = "Initialize";
-            this.InitializeButton.UseVisualStyleBackColor = true;
-            this.InitializeButton.Click += new System.EventHandler(this.InitializeButton_Click);
             // 
             // HarmonicInputDataGroupBox
             // 
@@ -501,7 +487,6 @@
             this.HarmonicInputDataGroupBox.TabIndex = 7;
             this.HarmonicInputDataGroupBox.TabStop = false;
             this.HarmonicInputDataGroupBox.Text = "Harmonic Input Data";
-            this.HarmonicInputDataGroupBox.Visible = false;
             // 
             // OscillationFrequencyLabel
             // 
@@ -816,26 +801,76 @@
             // 
             // ResponseToHarmonicIPPanel
             // 
-            this.ResponseToHarmonicIPPanel.Controls.Add(this.ResponseToHarmonicInputCatrtesianChart);
+            this.ResponseToHarmonicIPPanel.Controls.Add(this.ResponseToHarmonicInputCartesianChart);
             this.ResponseToHarmonicIPPanel.Location = new System.Drawing.Point(933, 233);
             this.ResponseToHarmonicIPPanel.Name = "ResponseToHarmonicIPPanel";
             this.ResponseToHarmonicIPPanel.Size = new System.Drawing.Size(323, 153);
             this.ResponseToHarmonicIPPanel.TabIndex = 8;
             this.ResponseToHarmonicIPPanel.Visible = false;
             // 
-            // ResponseToHarmonicInputCatrtesianChart
+            // ResponseToHarmonicInputCartesianChart
             // 
-            this.ResponseToHarmonicInputCatrtesianChart.Location = new System.Drawing.Point(27, 12);
-            this.ResponseToHarmonicInputCatrtesianChart.Name = "ResponseToHarmonicInputCatrtesianChart";
-            this.ResponseToHarmonicInputCatrtesianChart.Size = new System.Drawing.Size(260, 122);
-            this.ResponseToHarmonicInputCatrtesianChart.TabIndex = 4;
-            this.ResponseToHarmonicInputCatrtesianChart.Text = "Response ToHarmonic Input";
+            this.ResponseToHarmonicInputCartesianChart.Location = new System.Drawing.Point(27, 12);
+            this.ResponseToHarmonicInputCartesianChart.Name = "ResponseToHarmonicInputCartesianChart";
+            this.ResponseToHarmonicInputCartesianChart.Size = new System.Drawing.Size(260, 122);
+            this.ResponseToHarmonicInputCartesianChart.TabIndex = 4;
+            this.ResponseToHarmonicInputCartesianChart.Text = "Response ToHarmonic Input";
+            // 
+            // ICCheckBox
+            // 
+            this.ICCheckBox.AutoSize = true;
+            this.ICCheckBox.Location = new System.Drawing.Point(32, 89);
+            this.ICCheckBox.Name = "ICCheckBox";
+            this.ICCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.ICCheckBox.TabIndex = 5;
+            this.ICCheckBox.UseVisualStyleBackColor = true;
+            this.ICCheckBox.Visible = false;
+            this.ICCheckBox.Click += new System.EventHandler(this.ICCheckBox_Click);
+            // 
+            // HarmonicInputCheckBox
+            // 
+            this.HarmonicInputCheckBox.AutoSize = true;
+            this.HarmonicInputCheckBox.Location = new System.Drawing.Point(89, 89);
+            this.HarmonicInputCheckBox.Name = "HarmonicInputCheckBox";
+            this.HarmonicInputCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.HarmonicInputCheckBox.TabIndex = 5;
+            this.HarmonicInputCheckBox.UseVisualStyleBackColor = true;
+            this.HarmonicInputCheckBox.Visible = false;
+            this.HarmonicInputCheckBox.Click += new System.EventHandler(this.HarmonicInputCheckBox_Click);
+            // 
+            // CombinedResponseCheckBox
+            // 
+            this.CombinedResponseCheckBox.AutoSize = true;
+            this.CombinedResponseCheckBox.Location = new System.Drawing.Point(155, 89);
+            this.CombinedResponseCheckBox.Name = "CombinedResponseCheckBox";
+            this.CombinedResponseCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.CombinedResponseCheckBox.TabIndex = 5;
+            this.CombinedResponseCheckBox.UseVisualStyleBackColor = true;
+            this.CombinedResponseCheckBox.Visible = false;
+            this.CombinedResponseCheckBox.Click += new System.EventHandler(this.CombinedResponseCheckBox_Click);
+            // 
+            // SystemCharacteristicsRibbonPanel
+            // 
+            this.SystemCharacteristicsRibbonPanel.Items.Add(this.OutputParametersRibbonButton);
+            this.SystemCharacteristicsRibbonPanel.Name = "SystemCharacteristicsRibbonPanel";
+            this.SystemCharacteristicsRibbonPanel.Text = "System Characteristics";
+            // 
+            // OutputParametersRibbonButton
+            // 
+            this.OutputParametersRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.Image")));
+            this.OutputParametersRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.LargeImage")));
+            this.OutputParametersRibbonButton.Name = "OutputParametersRibbonButton";
+            this.OutputParametersRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.SmallImage")));
+            this.OutputParametersRibbonButton.Text = "Output Parameters";
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1268, 788);
+            this.Controls.Add(this.CombinedResponseCheckBox);
+            this.Controls.Add(this.HarmonicInputCheckBox);
+            this.Controls.Add(this.ICCheckBox);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.NewRibbon);
             this.Controls.Add(this.menuStrip1);
@@ -900,8 +935,8 @@
         private System.Windows.Forms.Label DampingCoeffUnitLabel;
         private System.Windows.Forms.RibbonPanel InputSignalRibbonPanel;
         private System.Windows.Forms.RibbonButton ResponseToICRibbonButton;
-        private System.Windows.Forms.RibbonButton HarmonicIPRibbonButton;
-        private System.Windows.Forms.RibbonButton CombinedIPRibbonButton;
+        private System.Windows.Forms.RibbonButton HarmonicResponseRibbonButton;
+        private System.Windows.Forms.RibbonButton CombinedResponseRibbonButton;
         private System.Windows.Forms.Label VehicleParameterLabel;
         private System.Windows.Forms.Panel SimulationSetupPanel;
         private System.Windows.Forms.Label TimeSetupHeadingLabel;
@@ -932,18 +967,21 @@
         private System.Windows.Forms.Label OscillationFrequencyUnitLabel;
         private System.Windows.Forms.TextBox OscillationFrequencyTextBox;
         private LiveCharts.WinForms.CartesianChart HarmonicInputCartesianChart;
-        private System.Windows.Forms.RibbonPanel RunRibbonPanel;
-        private System.Windows.Forms.RibbonButton RunRibbonButton;
-        private System.Windows.Forms.Button InitializeButton;
         private System.Windows.Forms.Panel CombinedResponsePanel;
         private LiveCharts.WinForms.CartesianChart CombinedResponseCartesianChart;
         private System.Windows.Forms.Panel ResponseToHarmonicIPPanel;
-        private LiveCharts.WinForms.CartesianChart ResponseToHarmonicInputCatrtesianChart;
+        private LiveCharts.WinForms.CartesianChart ResponseToHarmonicInputCartesianChart;
         private System.Windows.Forms.Panel ResponseToICPanel;
         private System.Windows.Forms.Panel InputSignalPanel;
         private System.Windows.Forms.RibbonButton ribbonButton2;
         private System.Windows.Forms.RibbonButton NewCarRibbonButton;
-        private System.Windows.Forms.RibbonButton ExistingCarRibbonButton;
+        private System.Windows.Forms.CheckBox ICCheckBox;
+        private System.Windows.Forms.CheckBox HarmonicInputCheckBox;
+        private System.Windows.Forms.CheckBox CombinedResponseCheckBox;
+        private System.Windows.Forms.RibbonPanel RunRibbonPanel;
+        private System.Windows.Forms.RibbonButton RunRibbonButton;
+        private System.Windows.Forms.RibbonPanel SystemCharacteristicsRibbonPanel;
+        private System.Windows.Forms.RibbonButton OutputParametersRibbonButton;
         //private System.Windows.Forms.RibbonPanel NewCarRibbonPanel;
     }
 }

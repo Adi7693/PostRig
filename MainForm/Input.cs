@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-//using MathNet.Numerics;
+using MathNet.Numerics;
 
 namespace Input
 {
@@ -14,13 +14,13 @@ namespace Input
         private bool VehicleDataNeedsToRecalculate;
 
 
-        private double _tTime = 0.0;
-        private double _tCosinTerm = 0.0;
-        private double _tHarmonicForce = 0.0;
-        private double _tResponseToHarmonicIP = 0.0;
-        private double _tResponseToInitialConditions = 0.0;
-        private double _tTotalResponse = 0.0;
-        private double _tStepInput = 0.0;
+        //private double _tTime = 0.0;
+        //private double _tCosinTerm = 0.0;
+        //private double _tHarmonicForce = 0.0;
+        //private double _tResponseToHarmonicIP = 0.0;
+        //private double _tResponseToInitialConditions = 0.0;
+        //private double _tTotalResponse = 0.0;
+        //private double _tStepInput = 0.0;
 
 
         #region Constructor
@@ -46,13 +46,13 @@ namespace Input
             InitialVelocity = 0.0;
 
 
-            _tTime = 0.0;
-            _tCosinTerm = 0.0;
-            _tHarmonicForce = 0.0;
-            _tResponseToHarmonicIP = 0.0;
-            _tResponseToInitialConditions = 0.0;
-            _tTotalResponse = 0.0;
-            _tStepInput = 0.0;
+            //_tTime = 0.0;
+            //_tCosinTerm = 0.0;
+            //_tHarmonicForce = 0.0;
+            //_tResponseToHarmonicIP = 0.0;
+            //_tResponseToInitialConditions = 0.0;
+            //_tTotalResponse = 0.0;
+            //_tStepInput = 0.0;
         }
         #endregion
 
@@ -442,7 +442,7 @@ namespace Input
 
                 TimeIntervals.Clear();
 
-                DateTime time = DateTime.Now;
+                //DateTime time = DateTime.Now;
 
                 for (double i = StartTime; i <= EndTime + TimeStep / 2.0; i += TimeStep)
                 {
@@ -450,7 +450,7 @@ namespace Input
                     TimeIntervals.Add(interval);
                 }
 
-                _tTime = (DateTime.Now - time).TotalMilliseconds;
+                //_tTime = (DateTime.Now - time).TotalMilliseconds;
 
                 TimeNeedsToRecalculate = false;
 
@@ -470,7 +470,7 @@ namespace Input
 
                 StepInput.Clear();
 
-                DateTime time = DateTime.Now;
+                //DateTime time = DateTime.Now;
 
 
                 foreach (double item in TimeIntervals)
@@ -488,7 +488,7 @@ namespace Input
 
                 }
 
-                _tStepInput = (DateTime.Now - time).TotalMilliseconds;
+                //_tStepInput = (DateTime.Now - time).TotalMilliseconds;
             }
         }
 
@@ -503,7 +503,7 @@ namespace Input
 
                 CosineOscillation.Clear();
 
-                DateTime time = DateTime.Now;
+                //DateTime time = DateTime.Now;
 
                 //Access Time Data from TimeData Project
                 foreach (double item in TimeIntervals)
@@ -515,7 +515,7 @@ namespace Input
                 }
 
 
-                _tCosinTerm = (DateTime.Now - time).TotalMilliseconds;
+                //_tCosinTerm = (DateTime.Now - time).TotalMilliseconds;
 
 
                 FrequencyNeedsToRecalculate = false;
@@ -537,7 +537,7 @@ namespace Input
 
                 InputForceOscillations.Clear();
 
-                DateTime time = DateTime.Now;
+                //DateTime time = DateTime.Now;
 
 
                 foreach (double item in CosineOscillation)
@@ -550,7 +550,7 @@ namespace Input
                     InputForceOscillations.Add(F);
                 }
 
-                _tHarmonicForce = (DateTime.Now - time).TotalMilliseconds;
+                //_tHarmonicForce = (DateTime.Now - time).TotalMilliseconds;
 
                 ForceNeedsToRecalculate = false;
 
@@ -569,7 +569,7 @@ namespace Input
 
                 ResponseToHarmonicInput.Clear();
 
-                DateTime time = DateTime.Now;
+                //DateTime time = DateTime.Now;
 
 
                 if (Force == 0.0 || ExcitationFrequencyHz == 0.0)
@@ -590,7 +590,7 @@ namespace Input
                         ResponseToHarmonicInput.Add(xOfTime);
                     }
                 }
-                _tResponseToHarmonicIP = (DateTime.Now - time).TotalMilliseconds;
+                // _tResponseToHarmonicIP = (DateTime.Now - time).TotalMilliseconds;
 
 
             }
@@ -608,7 +608,7 @@ namespace Input
 
             ResponseToInitialConditions.Clear();
 
-            DateTime time = DateTime.Now;
+            // DateTime time = DateTime.Now;
 
             if (InitialDisplacement == 0.0 && InitialVelocity == 0.0)
             {
@@ -658,7 +658,7 @@ namespace Input
 
                 }
             }
-            _tResponseToInitialConditions = (DateTime.Now - time).TotalMilliseconds;
+            //_tResponseToInitialConditions = (DateTime.Now - time).TotalMilliseconds;
         }
 
         private void TotalResponseCalculate()
@@ -671,7 +671,7 @@ namespace Input
                 }
 
                 TotalResponse.Clear();
-                DateTime time = DateTime.Now;
+                //DateTime time = DateTime.Now;
 
                 for (int i = 0; i < TimeIntervals.Count; i++)
                 {
@@ -679,19 +679,19 @@ namespace Input
                     TotalResponse.Add(x);
                 }
 
-                _tTotalResponse = (DateTime.Now - time).TotalMilliseconds;
+                //_tTotalResponse = (DateTime.Now - time).TotalMilliseconds;
                 VehicleDataNeedsToRecalculate = false;
             }
         }
-        public double Calculate()
+        public void Calculate()
         {
-            _tTime = 0.0;
-            _tCosinTerm = 0.0;
-            _tHarmonicForce = 0.0;
-            _tResponseToHarmonicIP = 0.0;
-            _tResponseToInitialConditions = 0.0;
-            _tTotalResponse = 0.0;
-            _tStepInput = 0.0;
+            //_tTime = 0.0;
+            //_tCosinTerm = 0.0;
+            //_tHarmonicForce = 0.0;
+            //_tResponseToHarmonicIP = 0.0;
+            //_tResponseToInitialConditions = 0.0;
+            //_tTotalResponse = 0.0;
+            //_tStepInput = 0.0;
 
             TimeCalculate();
             StepInputCalculate();
@@ -701,7 +701,7 @@ namespace Input
             ResponseToHarmonicIPCalculate();
             TotalResponseCalculate();
 
-            return _tTime + _tStepInput + _tCosinTerm + _tHarmonicForce + _tResponseToHarmonicIP + _tResponseToInitialConditions+ _tTotalResponse;
+            //return _tTime + _tStepInput + _tCosinTerm + _tHarmonicForce + _tResponseToHarmonicIP + _tResponseToInitialConditions+ _tTotalResponse;
         }
         #endregion
 

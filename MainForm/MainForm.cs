@@ -27,10 +27,7 @@ namespace PostRig
         private bool ResponseToHarmonicInputNeedsToRecalculate = true;
         private bool CombinedResponseNeedsToRecalculate = true;
 
-
-
         private delegate void LastActiveTab(object sender, EventArgs e);
-
 
         private LastActiveTab lastActiveTab;
 
@@ -51,13 +48,67 @@ namespace PostRig
             }
         }
 
-
-
         //Display Ribbon on Clicking New
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewRibbon.Visible = true;
             Doc = new Document();
+            UpdateUIFromDocument();
+            this.PropertiesPanel.Visible = true;
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.InitialDirectory = "C:\\";
+
+            dlg.Filter = "PostRig Files (*.postrig)|*.postrig";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Doc = new Document(dlg.FileName);
+            }
+
+            if (Doc != null)
+            {
+                UpdateUIFromDocument();
+            }
+
+            NewRibbon.Visible = true;
+            PropertiesPanel.Visible = true;
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Doc != null && !string.IsNullOrWhiteSpace(Doc.FileName))
+            {
+                Doc.Save();
+            }
+            else if (Doc != null)
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Doc != null)
+            {
+                SaveFileDialog dlg = new SaveFileDialog();
+
+                dlg.InitialDirectory = "C:\\";
+
+                dlg.Filter = "PostRig Files|*.postrig";
+
+                dlg.AddExtension = true;
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    Doc.SaveAs(dlg.FileName);
+                }
+            }
         }
 
         private void exitToolStripMenu_Click_1(object sender, EventArgs e)
@@ -69,16 +120,29 @@ namespace PostRig
             }
         }
 
-
         //Make Property Panel Visible New Car Button Click
-        private void NewCarRibbonButton_Click(object sender, EventArgs e)
+        private void RoadCarRibbonButton_Click(object sender, EventArgs e)
         {
+            Doc.Input.VehicleMass = 1600; // kg
+            Doc.Input.SpringStiffness = 100000; // N/m
+            Doc.Input.DampingCoefficient = 6000; // N/(m/s)
             UpdateUIFromDocument();
-            this.PropertiesPanel.Visible = true;
-            //this.SimulationSetupPanel.Visible = true;
-            //this.PropertiesPanel.BringToFront();
+        }
 
+        private void TouringCarRibbonButton_Click(object sender, EventArgs e)
+        {
+            Doc.Input.VehicleMass = 1000; // kg
+            Doc.Input.SpringStiffness = 120000; // N/m
+            Doc.Input.DampingCoefficient = 8000; // N/(m/s)
+            UpdateUIFromDocument();
+        }
 
+        private void SingleSeaterRibbonButton_Click(object sender, EventArgs e)
+        {
+            Doc.Input.VehicleMass = 700; // kg
+            Doc.Input.SpringStiffness = 150000; // N/m
+            Doc.Input.DampingCoefficient = 15000; // N/(m/s)
+            UpdateUIFromDocument();
         }
 
         private void VehicleMassTextBox_TextChanged(object sender, EventArgs e)
@@ -502,6 +566,11 @@ namespace PostRig
             this.CombinedResponseCheckBox.Visible = true;
         }
 
+        private void ResultRibbonTab_ActiveChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void ICCheckBox_Click(object sender, EventArgs e)
         {
             this.ICCheckBox.Checked = true;
@@ -582,57 +651,6 @@ namespace PostRig
         }
 
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
-
-            dlg.InitialDirectory = "C:\\";
-
-            dlg.Filter = "PostRig Files (*.postrig)|*.postrig";
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                Doc = new Document(dlg.FileName);
-            }
-
-            if (Doc != null)
-            {
-                UpdateUIFromDocument();
-            }
-
-            NewRibbon.Visible = true;
-
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Doc != null && !string.IsNullOrWhiteSpace(Doc.FileName))
-            {
-                Doc.Save();
-            }
-            else if (Doc != null)
-            {
-                saveAsToolStripMenuItem_Click(sender, e);
-            }
-        }
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Doc != null)
-            {
-                SaveFileDialog dlg = new SaveFileDialog();
-
-                dlg.InitialDirectory = "C:\\";
-
-                dlg.Filter = "PostRig Files|*.postrig";
-
-                dlg.AddExtension = true;
-
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    Doc.SaveAs(dlg.FileName);
-                }
-            }
-        }
+        
     }
 }

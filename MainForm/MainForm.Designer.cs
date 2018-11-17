@@ -42,8 +42,8 @@
             this.NewRibbon = new System.Windows.Forms.Ribbon();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.DesignRibbonTab = new System.Windows.Forms.RibbonTab();
-            this.BuildCarRibbonPanel = new System.Windows.Forms.RibbonPanel();
-            this.NewCarRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.CarTemplatesPanel = new System.Windows.Forms.RibbonPanel();
+            this.RoadCarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.SimSetupRibbonTab = new System.Windows.Forms.RibbonTab();
             this.InputSignalRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ResponseToICRibbonButton = new System.Windows.Forms.RibbonButton();
@@ -53,6 +53,8 @@
             this.RunRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.RunRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ResultsRibbonTab = new System.Windows.Forms.RibbonTab();
+            this.SystemCharacteristicsRibbonPanel = new System.Windows.Forms.RibbonPanel();
+            this.OutputParametersRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
             this.PropertiesPanel = new System.Windows.Forms.Panel();
             this.VehicleParameterLabel = new System.Windows.Forms.Label();
@@ -103,8 +105,8 @@
             this.ICCheckBox = new System.Windows.Forms.CheckBox();
             this.HarmonicInputCheckBox = new System.Windows.Forms.CheckBox();
             this.CombinedResponseCheckBox = new System.Windows.Forms.CheckBox();
-            this.SystemCharacteristicsRibbonPanel = new System.Windows.Forms.RibbonPanel();
-            this.OutputParametersRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.TouringCarRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.SingleSeaterRibbonButton = new System.Windows.Forms.RibbonButton();
             this.menuStrip1.SuspendLayout();
             this.PropertiesPanel.SuspendLayout();
             this.SimulationSetupPanel.SuspendLayout();
@@ -144,28 +146,28 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -238,24 +240,26 @@
             // DesignRibbonTab
             // 
             this.DesignRibbonTab.Name = "DesignRibbonTab";
-            this.DesignRibbonTab.Panels.Add(this.BuildCarRibbonPanel);
+            this.DesignRibbonTab.Panels.Add(this.CarTemplatesPanel);
             this.DesignRibbonTab.Text = "Design";
             this.DesignRibbonTab.ActiveChanged += new System.EventHandler(this.DesignRibbonTab_ActiveChanged);
             // 
-            // BuildCarRibbonPanel
+            // CarTemplatesPanel
             // 
-            this.BuildCarRibbonPanel.Items.Add(this.NewCarRibbonButton);
-            this.BuildCarRibbonPanel.Name = "BuildCarRibbonPanel";
-            this.BuildCarRibbonPanel.Text = "Build Car";
+            this.CarTemplatesPanel.Items.Add(this.RoadCarRibbonButton);
+            this.CarTemplatesPanel.Items.Add(this.TouringCarRibbonButton);
+            this.CarTemplatesPanel.Items.Add(this.SingleSeaterRibbonButton);
+            this.CarTemplatesPanel.Name = "CarTemplatesPanel";
+            this.CarTemplatesPanel.Text = "Default Car Templates";
             // 
-            // NewCarRibbonButton
+            // RoadCarRibbonButton
             // 
-            this.NewCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("NewCarRibbonButton.Image")));
-            this.NewCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("NewCarRibbonButton.LargeImage")));
-            this.NewCarRibbonButton.Name = "NewCarRibbonButton";
-            this.NewCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("NewCarRibbonButton.SmallImage")));
-            this.NewCarRibbonButton.Text = "New";
-            this.NewCarRibbonButton.Click += new System.EventHandler(this.NewCarRibbonButton_Click);
+            this.RoadCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("RoadCarRibbonButton.Image")));
+            this.RoadCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("RoadCarRibbonButton.LargeImage")));
+            this.RoadCarRibbonButton.Name = "RoadCarRibbonButton";
+            this.RoadCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("RoadCarRibbonButton.SmallImage")));
+            this.RoadCarRibbonButton.Text = "Road Car";
+            this.RoadCarRibbonButton.Click += new System.EventHandler(this.RoadCarRibbonButton_Click);
             // 
             // SimSetupRibbonTab
             // 
@@ -285,14 +289,6 @@
             this.ResponseToICRibbonButton.Text = "Initial Condition";
             this.ResponseToICRibbonButton.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Right;
             this.ResponseToICRibbonButton.Click += new System.EventHandler(this.ResponseToICRibbonButton_Click);
-            // 
-            // ribbonButton2
-            // 
-            this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
-            this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
-            this.ribbonButton2.Name = "ribbonButton2";
-            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
-            this.ribbonButton2.Text = "ribbonButton2";
             // 
             // HarmonicResponseRibbonButton
             // 
@@ -336,6 +332,21 @@
             this.ResultsRibbonTab.Name = "ResultsRibbonTab";
             this.ResultsRibbonTab.Panels.Add(this.SystemCharacteristicsRibbonPanel);
             this.ResultsRibbonTab.Text = "Results";
+            this.ResultsRibbonTab.ActiveChanged += new System.EventHandler(this.ResultRibbonTab_ActiveChanged);
+            // 
+            // SystemCharacteristicsRibbonPanel
+            // 
+            this.SystemCharacteristicsRibbonPanel.Items.Add(this.OutputParametersRibbonButton);
+            this.SystemCharacteristicsRibbonPanel.Name = "SystemCharacteristicsRibbonPanel";
+            this.SystemCharacteristicsRibbonPanel.Text = "System Characteristics";
+            // 
+            // OutputParametersRibbonButton
+            // 
+            this.OutputParametersRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.Image")));
+            this.OutputParametersRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.LargeImage")));
+            this.OutputParametersRibbonButton.Name = "OutputParametersRibbonButton";
+            this.OutputParametersRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.SmallImage")));
+            this.OutputParametersRibbonButton.Text = "Output Parameters";
             // 
             // ribbonSeparator1
             // 
@@ -849,19 +860,23 @@
             this.CombinedResponseCheckBox.Visible = false;
             this.CombinedResponseCheckBox.Click += new System.EventHandler(this.CombinedResponseCheckBox_Click);
             // 
-            // SystemCharacteristicsRibbonPanel
+            // TouringCarRibbonButton
             // 
-            this.SystemCharacteristicsRibbonPanel.Items.Add(this.OutputParametersRibbonButton);
-            this.SystemCharacteristicsRibbonPanel.Name = "SystemCharacteristicsRibbonPanel";
-            this.SystemCharacteristicsRibbonPanel.Text = "System Characteristics";
+            this.TouringCarRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("TouringCarRibbonButton.Image")));
+            this.TouringCarRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("TouringCarRibbonButton.LargeImage")));
+            this.TouringCarRibbonButton.Name = "TouringCarRibbonButton";
+            this.TouringCarRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("TouringCarRibbonButton.SmallImage")));
+            this.TouringCarRibbonButton.Text = "Touring Car";
+            this.TouringCarRibbonButton.Click += new System.EventHandler(this.TouringCarRibbonButton_Click);
             // 
-            // OutputParametersRibbonButton
+            // SingleSeaterRibbonButton
             // 
-            this.OutputParametersRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.Image")));
-            this.OutputParametersRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.LargeImage")));
-            this.OutputParametersRibbonButton.Name = "OutputParametersRibbonButton";
-            this.OutputParametersRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("OutputParametersRibbonButton.SmallImage")));
-            this.OutputParametersRibbonButton.Text = "Output Parameters";
+            this.SingleSeaterRibbonButton.Image = ((System.Drawing.Image)(resources.GetObject("SingleSeaterRibbonButton.Image")));
+            this.SingleSeaterRibbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("SingleSeaterRibbonButton.LargeImage")));
+            this.SingleSeaterRibbonButton.Name = "SingleSeaterRibbonButton";
+            this.SingleSeaterRibbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("SingleSeaterRibbonButton.SmallImage")));
+            this.SingleSeaterRibbonButton.Text = "Single Seaters";
+            this.SingleSeaterRibbonButton.Click += new System.EventHandler(this.SingleSeaterRibbonButton_Click);
             // 
             // MainForm
             // 
@@ -917,7 +932,7 @@
         private System.Windows.Forms.RibbonButton ribbonButton1;
         private System.Windows.Forms.RibbonTab SimSetupRibbonTab;
         private System.Windows.Forms.RibbonTab ResultsRibbonTab;
-        private System.Windows.Forms.RibbonPanel BuildCarRibbonPanel;
+        private System.Windows.Forms.RibbonPanel CarTemplatesPanel;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readMeToolStripMenuItem;
@@ -974,7 +989,7 @@
         private System.Windows.Forms.Panel ResponseToICPanel;
         private System.Windows.Forms.Panel InputSignalPanel;
         private System.Windows.Forms.RibbonButton ribbonButton2;
-        private System.Windows.Forms.RibbonButton NewCarRibbonButton;
+        private System.Windows.Forms.RibbonButton RoadCarRibbonButton;
         private System.Windows.Forms.CheckBox ICCheckBox;
         private System.Windows.Forms.CheckBox HarmonicInputCheckBox;
         private System.Windows.Forms.CheckBox CombinedResponseCheckBox;
@@ -982,6 +997,8 @@
         private System.Windows.Forms.RibbonButton RunRibbonButton;
         private System.Windows.Forms.RibbonPanel SystemCharacteristicsRibbonPanel;
         private System.Windows.Forms.RibbonButton OutputParametersRibbonButton;
+        private System.Windows.Forms.RibbonButton TouringCarRibbonButton;
+        private System.Windows.Forms.RibbonButton SingleSeaterRibbonButton;
         //private System.Windows.Forms.RibbonPanel NewCarRibbonPanel;
     }
 }

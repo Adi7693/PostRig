@@ -73,11 +73,10 @@ namespace PostRig
             if (Doc != null)
             {
                 UpdateUIFromDocument();
+
+                NewRibbon.Visible = true;
+                PropertiesPanel.Visible = true;
             }
-
-            NewRibbon.Visible = true;
-            PropertiesPanel.Visible = true;
-
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -568,7 +567,11 @@ namespace PostRig
 
         private void ResultRibbonTab_ActiveChanged(object sender, EventArgs e)
         {
-
+            this.SimulationSetupPanel.Visible = false;
+            this.PropertiesPanel.Visible = true;
+            this.ICCheckBox.Visible = false;
+            this.HarmonicInputCheckBox.Visible = false;
+            this.CombinedResponseCheckBox.Visible = false;
         }
 
         private void ICCheckBox_Click(object sender, EventArgs e)
@@ -649,8 +652,5 @@ namespace PostRig
             HarmonicInputNeedsToRecalculate = true;
             CombinedResponseNeedsToRecalculate = true;
         }
-
-
-        
     }
 }
